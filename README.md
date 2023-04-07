@@ -11,22 +11,30 @@ Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN�
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+# game
 
-#### 使用说明
+## Project setup
+```
+npm install
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-#### 参与贡献
+### Compiles and minifies for production
+```
+npm run build
+```
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 #### 特技
