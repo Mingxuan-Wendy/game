@@ -1,23 +1,24 @@
 <template>
   <div id="app">
     App
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
+    <Home></Home>
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue'
+import Home from "./components/Home.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Home
-  }
-}
+    Home,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import url('./assets/css/reset.css');
+@import url("./assets/css/reset.css");
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
