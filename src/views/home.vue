@@ -56,6 +56,7 @@
         <div class="mainContent">
           <TopHeader></TopHeader>
           <Invite></Invite>
+          <Rank></Rank>
         </div>
       </el-main>
     </el-container>
@@ -65,10 +66,12 @@
 <script>
 import TopHeader from "../views/homeContent/topHeader.vue";
 import Invite from "../views/homeContent/invite.vue";
+import Rank from "../views/homeContent/rank.vue";
 export default {
   components: {
     TopHeader,
     Invite,
+    Rank,
   },
   methods: {
     logout() {

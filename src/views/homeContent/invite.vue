@@ -160,7 +160,7 @@ export default {
   margin-bottom: 20px;
   /* margin-right: 100px; */
   border-radius: 20px;
-  box-shadow: 6px 2px 2px #e6e6e6;
+  box-shadow: 6px 2px 2px#e6e6e6;
 }
 /* 当不止一行时这么设置 */
 /* .content4:nth-of-type(4n + 0) {
@@ -168,19 +168,22 @@ export default {
 } */
 .invitePic1 {
   height: 40%;
-  background: url("../../img/invite1.jpg") no-repeat;
+  background: url("../../img/invite1.png") no-repeat;
   background-size: 100% 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 .content2 .invitePic1 {
-  background: url("../../img/invite2.jpg") no-repeat;
+  background: url("../../img/invite2.png") no-repeat;
+  background-size: 100% 100%;
 }
 .content3 .invitePic1 {
-  background: url("../../img/invite3.jpg") no-repeat;
+  background: url("../../img/invite3.png") no-repeat;
+  background-size: 100% 100%;
 }
 .content4 .invitePic1 {
-  background: url("../../img/invite4.jpg") no-repeat;
+  background: url("../../img/invite4.png") no-repeat;
+  background-size: 100% 100%;
 }
 .inviteInfo1 {
   height: 40%;
