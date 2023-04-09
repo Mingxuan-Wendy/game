@@ -55,6 +55,7 @@
         </el-header>
         <div class="mainContent">
           <TopHeader></TopHeader>
+          <Invite></Invite>
         </div>
       </el-main>
     </el-container>
@@ -63,9 +64,11 @@
 
 <script>
 import TopHeader from "../views/homeContent/topHeader.vue";
+import Invite from "../views/homeContent/invite.vue";
 export default {
   components: {
     TopHeader,
+    Invite,
   },
   methods: {
     logout() {
