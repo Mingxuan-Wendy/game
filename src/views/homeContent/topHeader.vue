@@ -35,25 +35,25 @@ export default {
       imgList: [
         {
           id: "001",
-          imgUrl: require("../../img/topHeader1.jpg"),
+          imgUrl: require("../../img/banner1.jpg"),
           socre: 8.6,
           moba: "MOBA1",
         },
         {
           id: "002",
-          imgUrl: require("../../img/topHeader2.jpg"),
+          imgUrl: require("../../img/banner2.jpg"),
           socre: 8.7,
           moba: "MOBA2",
         },
         {
           id: "003",
-          imgUrl: require("../../img/topHeader3.jpg"),
+          imgUrl: require("../../img/banner3.jpg"),
           socre: 8.8,
           moba: "MOBA3",
         },
         {
           id: "004",
-          imgUrl: require("../../img/topHeader4.jpg"),
+          imgUrl: require("../../img/banner4.jpg"),
           socre: 8.9,
           moba: "MOBA4",
         },
