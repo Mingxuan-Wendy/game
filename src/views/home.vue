@@ -1,19 +1,17 @@
 <template>
   <el-container class="home-container">
-    <el-header>
-      <div>
-        <span>LOGO</span>
-      </div>
-      <el-button type="info" @click="logout">退出</el-button>
-    </el-header>
     <!-- 页面主体区域 -->
     <el-container>
       <!-- 侧边栏 -->
       <el-aside width="200px">
+        <div>
+          <span>LOGO</span>
+          <i class="el-icon-s-fold" style="margin-left: 60px"></i>
+        </div>
         <el-menu background-color="#fff" text-color="#000">
           <el-menu-item index="1">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-fold"></i>
               <span>Home</span>
             </template>
           </el-menu-item>
@@ -44,7 +42,18 @@
         </el-menu>
       </el-aside>
       <!-- 右侧内容主体 -->
-      <el-main>Main</el-main>
+      <el-main>
+        <el-header>
+          <i class="el-icon-discover"> Browse </i>
+          <el-input
+            prefix-icon="el-icon-search"
+            placeholder="Search Everything"
+            style="width: 15%; margin-left: -60%"
+          ></el-input>
+          <i class="el-icon-bell" style="margin-right: -65%"></i>
+          <i class="el-icon-user" @click="logout"></i>
+        </el-header>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -68,29 +77,34 @@ export default {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
-  padding-left: 0;
+  padding-left: 50px;
   align-items: center;
   color: #000;
   font-size: 20px;
+  border-bottom: 1px solid #e6e6e6;
 }
 .el-header div {
   display: flex;
   align-items: center;
 }
 
-.el-header div span {
-  margin-left: 15px;
+.el-aside div span {
+  margin-left: 60px;
+  font-weight: 700;
 }
-
-.el-aside {
-  background-color: #333744;
+.el-aside div {
+  border-right: 1px solid #e6e6e6;
+  height: 60px;
+  line-height: 60px;
 }
 .el-main {
-  background-color: #eaedf1;
+  background-color: #fff;
+  padding: 0px;
 }
 .el-menu-item:hover {
   background-color: #6e5bd9 !important;
   color: #fff !important;
+  border-radius: 10px;
 }
 .el-menu-item:hover i {
   color: #fff !important;
@@ -99,6 +113,7 @@ export default {
 .el-menu-item.is-active {
   background-color: #6e5bd9 !important;
   color: #fff !important;
+  border-radius: 10px;
 }
 .el-menu-item.is-active i {
   color: #fff !important;
