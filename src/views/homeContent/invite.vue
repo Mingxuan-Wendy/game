@@ -144,16 +144,23 @@ export default {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+  /* flex-wrap: wrap; */
 }
 .content1,
 .content2,
 .content3,
 .content4 {
-  width: 20%;
+  width: calc((100% - 300px) / 4);
   height: 400px;
+  margin-bottom: 20px;
+  /* margin-right: 100px; */
   border-radius: 20px;
   box-shadow: 6px 2px 2px #e6e6e6;
 }
+/* 当不止一行时这么设置 */
+/* .content4:nth-of-type(4n + 0) {
+  margin-right: 0;
+} */
 .invitePic1 {
   height: 40%;
   background: url("../../img/invite1.jpg") no-repeat;
