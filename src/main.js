@@ -8,6 +8,7 @@ import router from './router'
 // 关闭生产提示
 Vue.config.productionTip = false
 // 挂载到原型，可以全局使用
+// 测试推送
 Vue.prototype.axios = axios
 
 
