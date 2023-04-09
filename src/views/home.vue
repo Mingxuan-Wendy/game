@@ -110,8 +110,9 @@ export default {
 }
 .el-main {
   background-color: #fff;
-  padding: 0px;
   border-left: 1px solid #e6e6e6;
+  padding: 0px;
+  overflow-y: hidden;
 }
 .el-menu-item:hover {
   background-color: #6e5bd9 !important;
