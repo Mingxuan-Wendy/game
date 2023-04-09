@@ -100,7 +100,7 @@ export default {
   margin-left: 20px;
 }
 .scoreDetail {
-  width: 8%;
+  padding: 0px 5px;
   border-radius: 10px;
   background-color: #ff754c;
   font-size: 12px;
@@ -109,7 +109,7 @@ export default {
 }
 .moba,
 .esport {
-  width: 10%;
+  padding: 0px 5px;
   font-size: 12px;
   color: #fff;
   text-align: center;
