@@ -19,7 +19,8 @@ Vue.use(Carousel)
 Vue.use(CarouselItem)
 Vue.use(Select)
 Vue.use(Option)
-Vue.prototype.$message = Message
-
-Vue.use(Button)
 Vue.use(Tag)
+Vue.use(Card)
+Vue.use(Row)
+Vue.use(Col)
+Vue.prototype.$message = Message
