@@ -53,13 +53,20 @@
           <i class="el-icon-bell" style="margin-right: -65%"></i>
           <i class="el-icon-user" @click="logout"></i>
         </el-header>
+        <div class="mainContent">
+          <TopHeader></TopHeader>
+        </div>
       </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
+import TopHeader from "../views/homeContent/topHeader.vue";
 export default {
+  components: {
+    TopHeader,
+  },
   methods: {
     logout() {
       window.sessionStorage.clear();
