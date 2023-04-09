@@ -68,7 +68,7 @@ export default {
   margin-left: 1%;
   height: 500px;
   border-radius: 20px;
-  margin-top: 50px;
+  margin-top: 20px;
   background-size: 100% 100%;
 }
 .picItem {

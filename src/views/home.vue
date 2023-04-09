@@ -94,19 +94,21 @@ export default {
   display: flex;
   align-items: center;
 }
-
+.el-aside .el-menu {
+  border: 0px;
+}
 .el-aside div span {
   margin-left: 60px;
   font-weight: 700;
 }
 .el-aside div {
-  border-right: 1px solid #e6e6e6;
   height: 60px;
   line-height: 60px;
 }
 .el-main {
   background-color: #fff;
   padding: 0px;
+  border-left: 1px solid #e6e6e6;
 }
 .el-menu-item:hover {
   background-color: #6e5bd9 !important;
