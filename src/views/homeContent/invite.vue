@@ -86,6 +86,11 @@
         </div>
       </div>
     </div>
+    <div class="inviteFooter">
+      <div>
+        <a>More</a>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -216,5 +221,18 @@ export default {
 }
 .inviteDetail span {
   margin-left: -155px;
+}
+.inviteFooter {
+  width: 98%;
+  margin-left: 1%;
+  overflow: hidden;
+}
+.inviteFooter div {
+  float: right;
+}
+.inviteFooter a {
+  color: #58b5ff;
+  cursor: pointer;
+  font-weight: 700;
 }
 </style>
