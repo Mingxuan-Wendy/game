@@ -6,16 +6,13 @@
 </template>
 
 <script>
-import Login from '@/views/Login'
-import Account from '@/views/Account'
+import Login from "@/views/Login";
 export default {
-  name: 'Home',
-  components:{
+  name: "Home",
+  components: {
     Login,
-    Account
   },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

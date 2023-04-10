@@ -53,25 +53,27 @@
           <i class="el-icon-bell" style="margin-right: -65%"></i>
           <i class="el-icon-user" @click="logout"></i>
         </el-header>
-        <div class="mainContent">
+        <!-- <div class="mainContent">
           <TopHeader></TopHeader>
           <Invite></Invite>
           <Rank></Rank>
-        </div>
+        </div> -->
+        <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
-import TopHeader from "../views/homeContent/topHeader.vue";
-import Invite from "../views/homeContent/invite.vue";
-import Rank from "../views/homeContent/rank.vue";
+// import TopHeader from "../../components/homeContent/topHeader.vue";
+// import Invite from "../views/homeContent/invite.vue";
+// import Rank from "../views/homeContent/rank.vue";
 export default {
+  name: "layout",
   components: {
-    TopHeader,
-    Invite,
-    Rank,
+    // TopHeader,
+    // Invite,
+    // Rank,
   },
   methods: {
     logout() {

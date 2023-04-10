@@ -185,7 +185,7 @@ export default {
   margin-bottom: 20px;
   border-radius: 10px;
 }
-.fourth{
+.fourth {
   text-align: left;
   margin-left: 50px;
   font-size: small;
