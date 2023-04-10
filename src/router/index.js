@@ -9,7 +9,7 @@ Vue.use(Router)
 const routes = [
     {
         path: '/homeContent',
-        component: () => import('../views/layout/home.vue'),
+        component: () => import('../views/layout'),
         children: [
             {
                 path: '/',

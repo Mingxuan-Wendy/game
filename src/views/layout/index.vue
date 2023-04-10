@@ -61,7 +61,6 @@
 
 <script>
 export default {
-  name: "layout",
   methods: {
     logout() {
       window.sessionStorage.clear();
@@ -105,6 +104,9 @@ export default {
   border-left: 1px solid #e6e6e6;
   padding: 0px;
   overflow-y: hidden;
+}
+.el-menu-item {
+  border-radius: 10px;
 }
 .el-menu-item:hover {
   background-color: #6e5bd9 !important;
