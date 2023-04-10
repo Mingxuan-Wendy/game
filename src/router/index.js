@@ -11,11 +11,11 @@ Vue.use(Router)
 const routes = [
     {
         path: '/',
-        component: () => import('../views/layout'),
+        component: () => import('../views/layout/home.vue'),
         children: [
         {
             path: '/',
-            component: () => import('../views/homeContent'),
+            component: () => import('../views/homeContent/index.vue'),
         },
         ]
     },

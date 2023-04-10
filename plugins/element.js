@@ -1,7 +1,7 @@
 import Vue from "vue";
 import { Button,Tag, Form, FormItem, Input, Message, Container, 
     Header, Aside, Main, Menu, Submenu, MenuItem, MenuItemGroup,Carousel,
-    CarouselItem,Select,Option} from 'element-ui'
+    CarouselItem,Select,Option, Card, Row, Col } from 'element-ui'
  
 Vue.use(Button)
 Vue.use(Form)
