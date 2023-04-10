@@ -1,23 +1,30 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Router from 'vue-router'
-// import Home from '../views/layout/home.vue'
 import Login from '../views/Login/index.vue'
 import Account from '../views/Account/index.vue'
-// Vue.prototype.$message = Message
 
 Vue.use(Router)
 
 const routes = [
     {
-        path: '/',
+        path: '/homeContent',
         component: () => import('../views/layout/home.vue'),
         children: [
-        {
-            path: '/',
-            component: () => import('../views/homeContent/index.vue'),
-        },
+            {
+                path: '/',
+                component: () => import('../views/homeContent'),
+            },
+            {
+                path: '/community',
+                component: () => import('../views/community'),
+            },
         ]
+    },
+    {
+        path:'/',
+        name:'homeContent',
+        redirect:'/homeContent'
     },
     {
         path:'/Login',

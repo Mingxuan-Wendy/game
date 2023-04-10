@@ -8,8 +8,8 @@
           <span>LOGO</span>
           <i class="el-icon-s-fold" style="margin-left: 60px"></i>
         </div>
-        <el-menu background-color="#fff" text-color="#000">
-          <el-menu-item index="1">
+        <el-menu router background-color="#fff" text-color="#000">
+          <el-menu-item index="/homeContent">
             <template slot="title">
               <i class="el-icon-s-fold"></i>
               <span>Home</span>
@@ -31,7 +31,7 @@
             <i class="el-icon-setting"></i>
             <span slot="title">Shopping</span>
           </el-menu-item>
-          <el-menu-item index="6">
+          <el-menu-item index="/community">
             <i class="el-icon-setting"></i>
             <span slot="title">Community</span>
           </el-menu-item>
@@ -53,11 +53,6 @@
           <i class="el-icon-bell" style="margin-right: -65%"></i>
           <i class="el-icon-user" @click="logout"></i>
         </el-header>
-        <!-- <div class="mainContent">
-          <TopHeader></TopHeader>
-          <Invite></Invite>
-          <Rank></Rank>
-        </div> -->
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -65,16 +60,8 @@
 </template>
 
 <script>
-// import TopHeader from "../../components/homeContent/topHeader.vue";
-// import Invite from "../views/homeContent/invite.vue";
-// import Rank from "../views/homeContent/rank.vue";
 export default {
   name: "layout",
-  components: {
-    // TopHeader,
-    // Invite,
-    // Rank,
-  },
   methods: {
     logout() {
       window.sessionStorage.clear();
