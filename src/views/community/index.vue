@@ -95,7 +95,7 @@
             <el-button
               class="reply-btn"
               size="medium"
-              @click="sendCommentReply(i, j)"
+              @click="sendCommentReply(i)"
               type="primary"
               >发表评论</el-button
             >
@@ -125,7 +125,6 @@ const clickoutside = {
     el.vueClickOutside = documentHandler;
     document.addEventListener("click", documentHandler);
   },
-  update() {},
   unbind(el) {
     // 解除事件监听
     document.removeEventListener("click", el.vueClickOutside);
@@ -151,8 +150,8 @@ export default {
           id: 19870621,
           headImg:
             "https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg",
-          comment: "我发布一张新专辑Norman Fucking Rockwell,大家快来听啊",
-          time: "2019年9月16日 18:43",
+          comment: "game1真好玩！",
+          time: "2023年2月16日 18:43",
           commentNum: 2,
           like: 15,
           inputShow: false,
@@ -164,7 +163,7 @@ export default {
                 "https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg",
               to: "Lana Del Rey",
               toId: 19870621,
-              comment: "我很喜欢你的新专辑！！",
+              comment: "我很喜欢game2！！",
               time: "2019年9月16日 18:43",
               commentNum: 1,
               like: 15,
@@ -177,7 +176,7 @@ export default {
                 "https://ae01.alicdn.com/kf/Hf6c0b4a7428b4edf866a9fbab75568e6U.jpg",
               to: "Lana Del Rey",
               toId: 19870621,
-              comment: "别忘记宣传我们的合作单曲啊",
+              comment: "别忘记一起上分啊！",
               time: "2019年9月16日 18:43",
               commentNum: 0,
               like: 5,
@@ -190,7 +189,7 @@ export default {
           id: 19891221,
           headImg:
             "https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg",
-          comment: "我发行了我的新专辑Lover",
+          comment: "我已经是王者了！",
           time: "2019年9月16日 18:43",
           commentNum: 1,
           like: 5,
@@ -203,7 +202,7 @@ export default {
                 "https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg",
               to: "Taylor Swift",
               toId: 19891221,
-              comment: "新专辑和speak now 一样棒！",
+              comment: "大佬求带！",
               time: "2019年9月16日 18:43",
               commentNum: 25,
               like: 5,
@@ -216,7 +215,7 @@ export default {
           id: 20190830,
           headImg:
             "https://ae01.alicdn.com/kf/Hdd856ae4c81545d2b51fa0c209f7aa28Z.jpg",
-          comment: "Plz buy Norman Fucking Rockwell on everywhere",
+          comment: "game3真好玩！",
           time: "2019年9月16日 18:43",
           commentNum: 0,
           like: 5,
@@ -340,7 +339,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .community {
   overflow: hidden;
@@ -355,178 +353,116 @@ export default {
   float: left;
   width: 80%;
 }
-/* 评论框 */
-.head {
-  background-color: rgb(248, 248, 248);
-  position: relative;
-  height: 75px;
-  border-radius: 5px;
+</style>
+<style>
+.my-reply {
+  padding: 10px;
+  background-color: #fafbfc;
 }
-.head img {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  position: absolute;
-  top: 10px;
-  left: 13px;
+.my-reply .header-img {
+  display: inline-block;
+  vertical-align: top;
 }
-/* 评论框 */
-.head input {
-  position: absolute;
-  top: 13px;
-  left: 80px;
-  height: 45px;
+.my-reply .reply-info {
+  display: inline-block;
+  margin-left: 5px;
+  width: 90%;
+  @media screen and (max-width: 1200px) {
+    width: 80%;
+  }
+}
+.my-reply .reply-info .reply-input {
+  min-height: 20px;
+  line-height: 22px;
+  padding: 10px 10px;
+  color: #ccc;
+  background-color: #fff;
   border-radius: 5px;
+  border: 2px solid #fafbfc;
+}
+.my-reply .reply-info .reply-input:empty::before {
+  content: attr(placeholder);
+}
+.my-reply .reply-info .reply-input:focus::before {
+  content: none;
+}
+.my-reply .reply-info .reply-input:focus {
+  padding: 8px 8px;
+  border: 2px solid blue;
+  box-shadow: none;
   outline: none;
-  width: 65%;
-  font-size: 20px;
-  padding: 0 20px;
-  border: 2px solid #f8f8f8;
 }
-/* 发布评论按钮 */
-.head button {
-  position: absolute;
-  top: 13px;
-  right: 20px;
-  width: 120px;
-  height: 48px;
-  border: 0;
-  border-radius: 5px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #fff;
-  background-color: rgb(118, 211, 248);
-  cursor: pointer;
-  letter-spacing: 2px;
+.my-reply .reply-btn-box {
+  height: 25px;
+  margin: 10px 0px;
 }
-/* 鼠标经过字体加粗 */
-.head button:hover {
-  font-weight: 600;
-}
-
-/* 评论内容区域 */
-.content .first {
-  display: flex;
+.my-reply .reply-btn-box .reply-btn {
   position: relative;
-  padding: 10px 10px 0px 0;
+  float: right;
+  margin-right: 15px;
 }
-.first .first-img {
-  flex: 1;
-  text-align: center;
+.my-comment-reply {
+  margin-left: 50px;
 }
-.first img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+.author-title:not(:last-child) {
+  border-bottom: 1px solid rgba(178, 186, 194, 0.3);
 }
-.first-username,
-.second-username {
-  color: #504f4f;
+.author-title {
+  padding: 10px;
 }
-.first-content {
-  flex: 9;
+.author-title .header-img {
+  display: inline-block;
+  vertical-align: top;
 }
-.first-time,
-.second-time {
-  color: #767575;
-}
-.first-comment,
-.second-comment {
-  margin-top: 5px;
-}
-/* 右边点赞和评论 */
-.first-right,
-.second-right {
-  position: absolute;
-  right: 1%;
-  top: 10px;
-}
-.first-right span,
-.second-right span {
-  margin-right: 20px;
-  cursor: pointer;
-}
-/* 删除评论 */
-.delete:hover {
-  color: red;
-}
-/* 评论字体图标 */
-.comments::before {
-  /* 想使用的icon的十六制编码，去掉&#x之后的 */
-  content: "\e8b9";
-  /* 必须加 */
-  font-family: "iconfont";
-  margin-right: 4px;
-  font-size: 16px;
-}
-/* 点赞字体图标 */
-.praise::before {
-  /* 想使用的icon的十六制编码，去掉&#x之后的 */
-  content: "\ec7f";
-  /* 必须加 */
-  font-family: "iconfont";
-  margin-right: 4px;
-  font-size: 19px;
-}
-.second {
-  background-color: #f3f3f3;
-  margin-top: 10px;
-}
-.second li {
-  padding: 10px 10px 10px 0;
-  border-bottom: 1px solid rgb(237, 237, 237);
-}
-.second .top {
-  display: flex;
-  position: relative;
-}
-.second-img {
-  flex: 1;
-  text-align: center;
-}
-.to_reply {
-  color: rgb(106, 106, 106);
-}
-.second-content {
-  flex: 9;
-}
-.second .reply_li {
-  margin-left: 70px;
-}
-/* 评论框 */
-.reply-comment {
-  margin: 10px 0 0 0;
-}
-.reply-comment input {
+.author-title .author-info {
+  display: inline-block;
+  margin-left: 5px;
+  width: 60%;
   height: 40px;
-  border-radius: 5px;
-  outline: none;
-  width: 70%;
-  font-size: 18px;
-  padding: 0 20px;
-  /* border: 2px solid #f8f8f8; */
-  border: 2px solid skyblue;
+  line-height: 20px;
 }
-/* 发布评论按钮 */
-.reply-comment button {
-  width: 15%;
-  height: 43px;
-  border: 0;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
-  background-color: rgb(118, 211, 248);
+.author-title .author-info span {
+  display: block;
   cursor: pointer;
-  letter-spacing: 2px;
-  margin-left: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-/* 鼠标经过字体加粗 */
-.reply-comment button:hover {
-  font-weight: 600;
+.author-title .author-info .author-name {
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
 }
-/* 评论点赞颜色 */
-.comment-like {
-  color: red;
+.author-title .author-info .author-time {
+  font-size: 14px;
+}
+.author-title .icon-btn {
+  width: 30%;
+  padding: 0 !important;
+  float: right;
+  @media screen and (max-width: 1200px) {
+    width: 20%;
+    padding: 7px;
+  }
+}
+.author-title .icon-btn span {
+  cursor: pointer;
+}
+.author-title .icon-btn .iconfont {
+  margin: 0px 5px;
+}
+.author-title .talk-box {
+  margin: 0px 50px;
+}
+.author-title .talk-box p {
+  margin: 0px;
+}
+.author-title .talk-box .reply {
+  font-size: 16px;
+  color: #000;
+}
+.author-title .reply-box {
+  margin: 10px 0px 0px 50px;
+  background-color: #efefef;
 }
 </style>
