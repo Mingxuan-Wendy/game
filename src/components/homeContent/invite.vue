@@ -17,9 +17,11 @@
         <div class="invitePic1"></div>
         <div class="inviteInfo1">
           <p>2020 World Champs Gaming Warzone</p>
-          <div>
-            <div class="profile1"></div>
-            <div>
+          <div class="inviteInfoBox">
+            <el-avatar
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            ></el-avatar>
+            <div class="text">
               <p>Tam Tran</p>
               <p>Call of Duty</p>
             </div>
@@ -35,9 +37,11 @@
         <div class="invitePic1"></div>
         <div class="inviteInfo1">
           <p>2020 World Champs Gaming Warzone</p>
-          <div>
-            <div class="profile1"></div>
-            <div>
+          <div class="inviteInfoBox">
+            <el-avatar
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            ></el-avatar>
+            <div class="text">
               <p>Tam Tran</p>
               <p>Call of Duty</p>
             </div>
@@ -53,9 +57,11 @@
         <div class="invitePic1"></div>
         <div class="inviteInfo1">
           <p>2020 World Champs Gaming Warzone</p>
-          <div>
-            <div class="profile1"></div>
-            <div>
+          <div class="inviteInfoBox">
+            <el-avatar
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            ></el-avatar>
+            <div class="text">
               <p>Tam Tran</p>
               <p>Call of Duty</p>
             </div>
@@ -71,9 +77,11 @@
         <div class="invitePic1"></div>
         <div class="inviteInfo1">
           <p>2020 World Champs Gaming Warzone</p>
-          <div>
-            <div class="profile1"></div>
-            <div>
+          <div class="inviteInfoBox">
+            <el-avatar
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            ></el-avatar>
+            <div class="text">
               <p>Tam Tran</p>
               <p>Call of Duty</p>
             </div>
@@ -196,12 +204,18 @@ export default {
   overflow: hidden;
   float: left;
 }
-.profile1 {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #e6e6e6;
-  margin-top: 20px;
+.inviteInfoBox {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.inviteInfoBox .el-avatar--circle {
+  display: block;
+  float: left;
+}
+.inviteInfoBox .text {
+  float: left;
+  margin-left: 20px;
 }
 .inviteDetail {
   height: 20%;
