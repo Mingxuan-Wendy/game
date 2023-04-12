@@ -1,12 +1,8 @@
 <template>
   <div class="newInvite">
     <div class="newInviteInfo">Send a new invite</div>
-    <el-upload
-      class="avatar-uploader"
-      :show-file-list="false"
-      :on-success="handleAvatarSuccess"
-      :before-upload="beforeAvatarUpload"
-    >
+    <el-upload class="avatar-uploader" :show-file-list="false" action="">
+      <!-- <img v-if="imageUrl" class="avatar" /> -->
       <i class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
   </div>
@@ -33,6 +29,7 @@
   background-color: #f8f8f8;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
+  text-align: center;
 }
 .newInvite .avatar-uploader .el-upload {
   cursor: pointer;
@@ -48,7 +45,6 @@
   width: 100%;
   height: 100px;
   line-height: 100px;
-  text-align: center;
 }
 /* .newInvite .avatar {
   width: 178px;
