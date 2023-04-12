@@ -5,11 +5,12 @@
       <h1 class="header">Your Games Collection</h1>
       <div class="filters">
         <el-button
-            class="all-btn"
-            size="medium"
-            @click="clickAll"
-            type="primary"
-            >All</el-button>
+          class="all-btn"
+          size="medium"
+          @click="clickAll"
+          type="primary"
+          >All</el-button
+        >
         <el-select v-model="categories" placeholder="Category">
           <el-option
             v-for="item in categaryOptions"
@@ -37,30 +38,28 @@
           >
           </el-option>
         </el-select>
-          <el-select v-model="wishLists" placeholder="Wishlist">
-            <el-option
-              v-for="item in wishListOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
-          </el-select>
-          <el-select v-model="haves" placeholder="Have">
-            <el-option
-              v-for="item in haveOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
+        <el-select v-model="wishLists" placeholder="Wishlist">
+          <el-option
+            v-for="item in wishListOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+        <el-select v-model="haves" placeholder="Have">
+          <el-option
+            v-for="item in haveOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
         </el-select>
       </div>
-      <p> You totally added {{ totalCollectedGames }} games</p>
+      <p>You totally added {{ totalCollectedGames }} games</p>
 
-      <div class="filter">
-
-      </div>
+      <div class="filter"></div>
 
       <div class="recommendContent">
         <div class="content1">
@@ -173,7 +172,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -194,9 +192,8 @@ export default {
         },
       ],
       totalCollectedGames: 16,
-
     };
-  }
+  },
 };
 </script>
 
@@ -237,7 +234,7 @@ export default {
   margin-bottom: 20px;
   /* margin-right: 100px; */
   border-radius: 20px;
-  box-shadow: 6px 2px 2px#e6e6e6;
+  box-shadow: 0px 2px 2px 3px#e6e6e6;
 }
 /* 当不止一行时这么设置 */
 /* .content4:nth-of-type(4n + 0) {
@@ -330,7 +327,6 @@ export default {
   margin-left: 1%;
   margin-top: 0px;
 }
-
 
 .detail {
   height: 20%;
