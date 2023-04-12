@@ -35,7 +35,7 @@
             <i class="el-icon-setting"></i>
             <span slot="title">Community</span>
           </el-menu-item>
-          <el-menu-item index="settings">
+          <el-menu-item index="/settings">
             <i class="el-icon-setting"></i>
             <span slot="title">Settings</span>
           </el-menu-item>
@@ -103,7 +103,7 @@ export default {
   background-color: #fff;
   border-left: 1px solid #e6e6e6;
   padding: 0px;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .el-menu-item {
   border-radius: 10px;
