@@ -15,7 +15,7 @@
               <span>Home</span>
             </template>
           </el-menu-item>
-          <el-menu-item index="2">
+          <el-menu-item index="/collection">
             <i class="el-icon-menu"></i>
             <span slot="title">Collection</span>
           </el-menu-item>

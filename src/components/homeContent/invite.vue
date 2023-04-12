@@ -134,7 +134,7 @@ export default {
 </script>
 <style scoped>
 .invite {
-  width: 98%;
+  width: 90%;
   margin-left: 1%;
   margin-top: 40px;
 }

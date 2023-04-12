@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Router from 'vue-router'
 import Login from '../views/Login/index.vue'
 import Account from '../views/Account/index.vue'
+import Collection from '../views/collection/index.vue'
 
 Vue.use(Router)
 
@@ -19,6 +20,10 @@ const routes = [
                 path: '/community',
                 component: () => import('../views/community'),
             },
+            {
+                path:'/collection',
+                component: () => import('../views/collection'),
+            }
         ]
     },
     {
@@ -35,6 +40,11 @@ const routes = [
         path:'/Account',
         name:'Account',
         component:Account
+    },
+    {
+        path:'/collection',
+        name:'Collection',
+        component:Collection
     }
 ]
 
