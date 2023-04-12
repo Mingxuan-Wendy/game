@@ -19,15 +19,15 @@
             <i class="el-icon-menu"></i>
             <span slot="title">Collection</span>
           </el-menu-item>
-          <el-menu-item index="3">
+          <el-menu-item index="/friends">
             <i class="el-icon-document"></i>
             <span slot="title">Friends</span>
           </el-menu-item>
-          <el-menu-item index="4">
+          <el-menu-item index="/invite">
             <i class="el-icon-setting"></i>
             <span slot="title">Invite</span>
           </el-menu-item>
-          <el-menu-item index="5">
+          <el-menu-item index="/shopping">
             <i class="el-icon-setting"></i>
             <span slot="title">Shopping</span>
           </el-menu-item>
@@ -35,7 +35,7 @@
             <i class="el-icon-setting"></i>
             <span slot="title">Community</span>
           </el-menu-item>
-          <el-menu-item index="7">
+          <el-menu-item index="settings">
             <i class="el-icon-setting"></i>
             <span slot="title">Settings</span>
           </el-menu-item>
