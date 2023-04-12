@@ -5,11 +5,12 @@
       <h1 class="header">Your Games Collection</h1>
       <div class="filters">
         <el-button
-            class="all-btn"
-            size="medium"
-            @click="clickAll"
-            type="primary"
-            >All</el-button>
+          class="all-btn"
+          size="medium"
+          @click="clickAll"
+          type="primary"
+          >All</el-button
+        >
         <el-select v-model="categories" placeholder="Category">
           <el-option
             v-for="item in categaryOptions"
@@ -37,26 +38,26 @@
           >
           </el-option>
         </el-select>
-          <el-select v-model="wishLists" placeholder="Wishlist">
-            <el-option
-              v-for="item in wishListOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
-          </el-select>
-          <el-select v-model="haves" placeholder="Have">
-            <el-option
-              v-for="item in haveOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
+        <el-select v-model="wishLists" placeholder="Wishlist">
+          <el-option
+            v-for="item in wishListOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+        <el-select v-model="haves" placeholder="Have">
+          <el-option
+            v-for="item in haveOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
         </el-select>
       </div>
-      <p> You totally added {{ totalCollectedGames }} games</p>
+      <p>You totally added {{ totalCollectedGames }} games</p>
 
       <div class="operator">
         <i class="el-icon-edit"  style="vertical-align: middle" @click="showSelect = !showSelect">
@@ -107,12 +108,10 @@
 <script>
 
 export default {
-
   data() {
     return {
       userName: "XXX",
       categories: "Category",
-      showSelect: false,
       categaryOptions: [
         {
           value: "option1",
@@ -176,7 +175,7 @@ export default {
         }
       ],
     };
-  }
+  },
 };
 </script>
 
@@ -332,7 +331,6 @@ ul{
   margin-left: 1%;
   margin-top: 0px;
 }
-
 
 .detail {
   height: 20%;

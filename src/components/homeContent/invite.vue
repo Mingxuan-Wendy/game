@@ -134,7 +134,7 @@ export default {
 </script>
 <style scoped>
 .invite {
-  width: 90%;
+  width: 98%;
   margin-left: 1%;
   margin-top: 40px;
 }
@@ -168,7 +168,7 @@ export default {
   margin-bottom: 20px;
   /* margin-right: 100px; */
   border-radius: 20px;
-  box-shadow: 6px 2px 2px#e6e6e6;
+  box-shadow: 0px 2px 2px 3px#e6e6e6;
 }
 /* 当不止一行时这么设置 */
 /* .content4:nth-of-type(4n + 0) {

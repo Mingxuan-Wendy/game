@@ -5,109 +5,122 @@
     </div>
 
     <div class="rankContent">
-      <div class="content">
+      <div class="leftContent">
         <div class="rankPic">
-          <img class="carousel" :src="require('../../img/invite1.png')" width="100%" />
+          <img
+            class="carousel"
+            :src="require('../../img/invite1.png')"
+            width="100%"
+          />
           <div class="info">
-              <div class="score">
-                <div class="scoreDetail">
-                  <i class="el-icon-star-on"></i>
-                  {{ 9.5 }}
-                </div>
-                <div class="moba">{{ "MOBA1" }}</div>
-                <div class="esport">ESport</div>
+            <div class="score">
+              <div class="scoreDetail">
+                <i class="el-icon-star-on"></i>
+                {{ 9.5 }}
               </div>
-              <div class="brass">
-                <h4>Brass:Birmingham(2018)</h4>
-                <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-              </div>
-              <div class="detail">
-                <el-button>Details</el-button>
-              </div>
+              <div class="moba">{{ "MOBA1" }}</div>
+              <div class="esport">ESport</div>
+            </div>
+            <div class="brass">
+              <h4>Brass:Birmingham(2018)</h4>
+              <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+            </div>
+            <div class="detail">
+              <el-button>Details</el-button>
+            </div>
           </div>
         </div>
-
       </div>
       <div class="content">
         <section class="container">
-            <div class="container-item">
-                 <div class="rankPic2">
-                    <div class="sub-content">
-                      <img class="carousel2" :src="require('../../img/invite2.png')" width="100%" />
+          <div class="container-item">
+            <div class="rankPic2">
+              <div class="sub-content">
+                <img
+                  class="carousel2"
+                  :src="require('../../img/invite2.png')"
+                  width="100%"
+                />
+              </div>
+              <div class="sub-content">
+                <div class="info2">
+                  <div class="score2">
+                    <div class="scoreDetail">
+                      <i class="el-icon-star-on"></i>
+                      {{ 8.5 }}
                     </div>
-                    <div class="sub-content">
-                        <div class="info2">
-                          <div class="score2">
-                            <div class="scoreDetail">
-                              <i class="el-icon-star-on"></i>
-                              {{ 8.5 }}
-                            </div>
-                            <div class="moba2">{{ "MOBA1" }}</div>
-                            <div class="esport2">ESport</div>
-                          </div>
-                          <div class="brass2">
-                            <h4>Brass:Birmingham(2018)</h4>
-                            <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-                          </div>
-                          <div class="detail2">
-                            <el-button>Details</el-button>
-                          </div>
-                      </div>
-                    </div>
-                 </div>
-
-                 <div class="rankPic2">
-                    <div class="sub-content">
-                      <img class="carousel2" :src="require('../../img/invite3.png')" width="100%" />
-                    </div>
-                    <div class="sub-content">
-                        <div class="info2">
-                          <div class="score2">
-                            <div class="scoreDetail">
-                              <i class="el-icon-star-on"></i>
-                              {{ 8.3 }}
-                            </div>
-                            <div class="moba2">{{ "MOBA1" }}</div>
-                            <div class="esport2">ESport</div>
-                          </div>
-                          <div class="brass2">
-                            <h4>Brass:Birmingham(2018)</h4>
-                            <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-                          </div>
-                          <div class="detail2">
-                            <el-button>Details</el-button>
-                          </div>
-                      </div>
-                    </div>
-                 </div>
-
-                 <div class="rankPic2">
-                    <div class="sub-content">
-                      <img class="carousel2" :src="require('../../img/invite4.png')" width="100%" />
-                    </div>
-                    <div class="sub-content">
-                        <div class="info2">
-                          <div class="score2">
-                            <div class="scoreDetail">
-                              <i class="el-icon-star-on"></i>
-                              {{ 8.1 }}
-                            </div>
-                            <div class="moba2">{{ "MOBA1" }}</div>
-                            <div class="esport2">ESport</div>
-                          </div>
-                          <div class="brass2">
-                            <h4>Brass:Birmingham(2018)</h4>
-                            <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-                          </div>
-                          <div class="detail2">
-                            <el-button>Details</el-button>
-                          </div>
-                      </div>
-                    </div>
-                 </div>
+                    <div class="moba2">{{ "MOBA1" }}</div>
+                    <div class="esport2">ESport</div>
+                  </div>
+                  <div class="brass2">
+                    <h4>Brass:Birmingham(2018)</h4>
+                    <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+                  </div>
+                  <div class="detail2">
+                    <el-button>Details</el-button>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            <div class="rankPic2">
+              <div class="sub-content">
+                <img
+                  class="carousel2"
+                  :src="require('../../img/invite3.png')"
+                  width="100%"
+                />
+              </div>
+              <div class="sub-content">
+                <div class="info2">
+                  <div class="score2">
+                    <div class="scoreDetail">
+                      <i class="el-icon-star-on"></i>
+                      {{ 8.3 }}
+                    </div>
+                    <div class="moba2">{{ "MOBA1" }}</div>
+                    <div class="esport2">ESport</div>
+                  </div>
+                  <div class="brass2">
+                    <h4>Brass:Birmingham(2018)</h4>
+                    <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+                  </div>
+                  <div class="detail2">
+                    <el-button>Details</el-button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <div class="rankPic2">
+              <div class="sub-content">
+                <img
+                  class="carousel2"
+                  :src="require('../../img/invite4.png')"
+                  width="100%"
+                />
+              </div>
+              <div class="sub-content">
+                <div class="info2">
+                  <div class="score2">
+                    <div class="scoreDetail">
+                      <i class="el-icon-star-on"></i>
+                      {{ 8.1 }}
+                    </div>
+                    <div class="moba2">{{ "MOBA1" }}</div>
+                    <div class="esport2">ESport</div>
+                  </div>
+                  <div class="brass2">
+                    <h4>Brass:Birmingham(2018)</h4>
+                    <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+                  </div>
+                  <div class="detail2">
+                    <el-button>Details</el-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </div>
@@ -117,13 +130,11 @@
       </div>
     </div>
   </div>
-
 </template>
-
 
 <style scoped>
 .gameRank {
-  width: 90%;
+  width: 98%;
   margin-left: 1%;
   margin-top: 40px;
 }
@@ -138,24 +149,26 @@
 }
 
 .rankContent {
-  width: 100%;
+  width: 98%;
   margin-left: 1%;
   margin-top: 20px;
   display: flex;
-  /*justify-content: space-between;*/
-  /* flex-wrap: wrap; */
+  justify-content: space-between;
 }
-
-.content {
-  display: flex;
-  /*justify-content: space-between;*/
-  width: 100%;
-  height: 402px;
+.leftContent {
+  width: 40%;
+  height: 500px;
   margin-bottom: 20px;
-  /*margin-top: 1px;*/
-  margin-left: 1%;
   border-radius: 20px;
-  box-shadow: 6px 2px 2px#e6e6e6;
+  box-shadow: 0px 2px 2px 3px#e6e6e6;
+  background-size: 100% 100%;
+}
+.content {
+  width: 58%;
+  height: 500px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 2px 3px#e6e6e6;
   background-size: 100% 100%;
 }
 .sub-content {
@@ -163,20 +176,20 @@
   justify-content: space-between;
   width: 100%;
   height: 133px;
-  margin-bottom: 1px;
-  /*margin-top: 1px;*/
   margin-left: 1%;
-  border-radius: 20px;
-  box-shadow: 6px 2px 2px#e6e6e6;
   background-size: 100% 100%;
 }
 .container {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 500px;
 }
 .container-item {
   height: 133px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .rankPic {
@@ -188,6 +201,7 @@
   display: flex;
   position: relative;
   height: 100%;
+  margin-top: 25px;
 }
 
 .rankPic .info {
@@ -224,7 +238,6 @@
   position: relative;
   border-radius: 10px;
 }
-
 
 .score {
   width: 100%;
@@ -291,7 +304,7 @@
   margin-left: 1%;
   margin-top: 0px;
 }
- h4 {
+h4 {
   margin-top: 0px;
   margin-bottom: 0px;
   /*margin-left: 5%;*/

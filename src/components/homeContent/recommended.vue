@@ -16,25 +16,25 @@
       <div class="content1">
         <div class="recommendPic1"></div>
         <div class="recommendInfo1">
-            <p>2020 World Champs Gaming Warzone</p>
-            <div class="recommendInfoBox">
-              <div class="info">
-                <div class="score">
-                  <div class="scoreDetail">
-                    <i class="el-icon-star-on"></i>
-                    {{ 9.5 }}
-                  </div>
-                  <div class="moba">{{ "MOBA1" }}</div>
-                  <div class="esport">ESport</div>
+          <p>2020 World Champs Gaming Warzone</p>
+          <div class="recommendInfoBox">
+            <div class="info">
+              <div class="score">
+                <div class="scoreDetail">
+                  <i class="el-icon-star-on"></i>
+                  {{ 9.5 }}
                 </div>
-                <div class="brass">
-                  <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-                </div>
+                <div class="moba">{{ "MOBA1" }}</div>
+                <div class="esport">ESport</div>
+              </div>
+              <div class="brass">
+                <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
               </div>
             </div>
+          </div>
         </div>
         <div class="detail">
-            <el-button>Details</el-button>
+          <el-button>Details</el-button>
         </div>
       </div>
 
@@ -43,23 +43,23 @@
         <div class="recommendInfo1">
           <p>2020 World Champs Gaming Warzone</p>
           <div class="recommendInfoBox">
-              <div class="info">
-                <div class="score">
-                  <div class="scoreDetail">
-                    <i class="el-icon-star-on"></i>
-                    {{ 8.5 }}
-                  </div>
-                  <div class="moba">{{ "MOBA1" }}</div>
-                  <div class="esport">ESport</div>
+            <div class="info">
+              <div class="score">
+                <div class="scoreDetail">
+                  <i class="el-icon-star-on"></i>
+                  {{ 8.5 }}
                 </div>
-                <div class="brass">
-                  <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-                </div>
+                <div class="moba">{{ "MOBA1" }}</div>
+                <div class="esport">ESport</div>
               </div>
+              <div class="brass">
+                <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="detail">
-            <el-button>Details</el-button>
+          <el-button>Details</el-button>
         </div>
       </div>
 
@@ -68,23 +68,23 @@
         <div class="recommendInfo1">
           <p>2020 World Champs Gaming Warzone</p>
           <div class="recommendInfoBox">
-              <div class="info">
-                <div class="score">
-                  <div class="scoreDetail">
-                    <i class="el-icon-star-on"></i>
-                    {{ 8.3 }}
-                  </div>
-                  <div class="moba">{{ "MOBA1" }}</div>
-                  <div class="esport">ESport</div>
+            <div class="info">
+              <div class="score">
+                <div class="scoreDetail">
+                  <i class="el-icon-star-on"></i>
+                  {{ 8.3 }}
                 </div>
-                <div class="brass">
-                  <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-                </div>
+                <div class="moba">{{ "MOBA1" }}</div>
+                <div class="esport">ESport</div>
               </div>
+              <div class="brass">
+                <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="detail">
-            <el-button>Details</el-button>
+          <el-button>Details</el-button>
         </div>
       </div>
 
@@ -93,23 +93,23 @@
         <div class="recommendInfo1">
           <p>2020 World Champs Gaming Warzone</p>
           <div class="recommendInfoBox">
-              <div class="info">
-                <div class="score">
-                  <div class="scoreDetail">
-                    <i class="el-icon-star-on"></i>
-                    {{ 8.3 }}
-                  </div>
-                  <div class="moba">{{ "MOBA1" }}</div>
-                  <div class="esport">ESport</div>
+            <div class="info">
+              <div class="score">
+                <div class="scoreDetail">
+                  <i class="el-icon-star-on"></i>
+                  {{ 8.3 }}
                 </div>
-                <div class="brass">
-                  <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-                </div>
+                <div class="moba">{{ "MOBA1" }}</div>
+                <div class="esport">ESport</div>
               </div>
+              <div class="brass">
+                <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="detail">
-            <el-button>Details</el-button>
+          <el-button>Details</el-button>
         </div>
       </div>
     </div>
@@ -187,7 +187,7 @@ export default {
   margin-bottom: 20px;
   /* margin-right: 100px; */
   border-radius: 20px;
-  box-shadow: 6px 2px 2px#e6e6e6;
+  box-shadow: 0px 2px 2px 3px#e6e6e6;
 }
 /* 当不止一行时这么设置 */
 /* .content4:nth-of-type(4n + 0) {
@@ -280,7 +280,6 @@ export default {
   margin-left: 1%;
   margin-top: 0px;
 }
-
 
 .detail {
   height: 20%;

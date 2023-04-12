@@ -31,11 +31,13 @@
               style="width: 300px"
             ></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item style="margin-left: 50px">
             <el-button type="success" style="width: 300px">Continue</el-button>
           </el-form-item>
-          <div class="continue">Or continue with</div>
-          <el-form-item>
+          <div class="continue" style="text-align: center; margin-left: 0px">
+            Or continue with
+          </div>
+          <el-form-item style="margin-left: 50px">
             <el-button type="primary" style="width: 300px">Visitor</el-button>
           </el-form-item>
         </el-form>
@@ -99,9 +101,8 @@ export default {
 
 <style lang="scss" scoped>
 .main_container {
-  background-image: url("../../assets/imgs/login.jpg");
-  background-repeat: no-repeat;
-  width: 100%;
+  background: url("../../assets/imgs/login.jpg") no-repeat;
+  background-size: 100% 100%;
   height: 100vh;
 }
 
@@ -212,7 +213,7 @@ export default {
   font-size: small;
   color: rgb(208, 211, 217);
   div {
-    margin-top: 10px;
+    margin-top: 3px;
     margin-bottom: 10px;
   }
   :nth-child(3) {
