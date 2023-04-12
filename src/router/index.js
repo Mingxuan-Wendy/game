@@ -23,6 +23,10 @@ const routes = [
                 component: () => import('../views/collection'),
             },
             {
+                path:'/invite',
+                component: () => import('../views/invite'),
+            },
+            {
                 path:'/settings',
                 component: () => import('../views/accountSettings'),
             }
