@@ -11,28 +11,28 @@
         <el-menu router background-color="#fff" text-color="#000">
           <el-menu-item index="/homeContent">
             <template slot="title">
-              <i class="el-icon-s-fold"></i>
+              <i class="el-icon-s-home"></i>
               <span>Home</span>
             </template>
           </el-menu-item>
           <el-menu-item index="/collection">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-collection"></i>
             <span slot="title">Collection</span>
           </el-menu-item>
           <el-menu-item index="/friends">
-            <i class="el-icon-document"></i>
+            <i class="el-icon-s-custom"></i>
             <span slot="title">Friends</span>
           </el-menu-item>
           <el-menu-item index="/invite">
-            <i class="el-icon-setting"></i>
+            <i class="el-icon-tickets"></i>
             <span slot="title">Invite</span>
           </el-menu-item>
           <el-menu-item index="/shopping">
-            <i class="el-icon-setting"></i>
+            <i class="el-icon-shopping-bag-1"></i>
             <span slot="title">Shopping</span>
           </el-menu-item>
           <el-menu-item index="/community">
-            <i class="el-icon-setting"></i>
+            <i class="el-icon-chat-line-square"></i>
             <span slot="title">Community</span>
           </el-menu-item>
           <el-menu-item index="/settings">
