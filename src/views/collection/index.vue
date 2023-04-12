@@ -58,116 +58,48 @@
       </div>
       <p> You totally added {{ totalCollectedGames }} games</p>
 
-      <div class="filter">
-
+      <div class="operator">
+        <i class="el-icon-edit"  style="vertical-align: middle" @click="showSelect = !showSelect">
+        </i>
+        <i class="el-icon-delete" style="vertical-align: middle">
+        </i>
       </div>
 
-      <div class="recommendContent">
-        <div class="content1">
-          <div class="recommendPic1"></div>
-          <div class="recommendInfo1">
-            <p>2020 World Champs Gaming Warzone</p>
-            <div class="recommendInfoBox">
-              <div class="info">
-                <div class="score">
-                  <div class="scoreDetail">
-                    <i class="el-icon-star-on"></i>
-                    {{ 9.5 }}
-                  </div>
-                  <div class="moba">{{ "MOBA1" }}</div>
-                  <div class="esport">ESport</div>
-                </div>
-                <div class="brass">
-                  <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+      <div class="collectionContent">
+        <ul>
+            <div class="content1" v-for="item in collectedGameList" :key="item.id">
+              <div class="collectionPic1">
+                <img :src="item.url" width="100%" class="pic">
+                <div v-if="showSelect" class="layers-item-selector">
+                  <input type="checkbox" />
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="detail">
-            <el-button>Details</el-button>
-          </div>
-        </div>
 
-        <div class="content2">
-          <div class="recommendPic1"></div>
-          <div class="recommendInfo1">
-            <p>2020 World Champs Gaming Warzone</p>
-            <div class="recommendInfoBox">
-              <div class="info">
-                <div class="score">
-                  <div class="scoreDetail">
-                    <i class="el-icon-star-on"></i>
-                    {{ 8.5 }}
+              <div class="collectionInfo1">
+                <p>{{ item.name }}</p>
+                <div class="collectionInfoBox">
+                  <div class="info">
+                    <div class="score">
+                      <div class="scoreDetail">
+                        <i class="el-icon-star-on"></i>
+                        {{ item.score }}
+                      </div>
+                      <div class="moba">{{ item.moba }}</div>
+                      <div class="esport">ESport</div>
+                    </div>
+                    <div class="brass">
+                      <p>{{ item.brass }}</p>
+                    </div>
                   </div>
-                  <div class="moba">{{ "MOBA1" }}</div>
-                  <div class="esport">ESport</div>
-                </div>
-                <div class="brass">
-                  <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="detail">
-            <el-button>Details</el-button>
-          </div>
-        </div>
-
-        <div class="content3">
-          <div class="recommendPic1"></div>
-          <div class="recommendInfo1">
-            <p>2020 World Champs Gaming Warzone</p>
-            <div class="recommendInfoBox">
-              <div class="info">
-                <div class="score">
-                  <div class="scoreDetail">
-                    <i class="el-icon-star-on"></i>
-                    {{ 8.3 }}
-                  </div>
-                  <div class="moba">{{ "MOBA1" }}</div>
-                  <div class="esport">ESport</div>
-                </div>
-                <div class="brass">
-                  <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-                </div>
+              <div class="detail">
+                <el-button>Details</el-button>
               </div>
             </div>
-          </div>
-          <div class="detail">
-            <el-button>Details</el-button>
-          </div>
-        </div>
-
-        <div class="content4">
-          <div class="recommendPic1"></div>
-          <div class="recommendInfo1">
-            <p>2020 World Champs Gaming Warzone</p>
-            <div class="recommendInfoBox">
-              <div class="info">
-                <div class="score">
-                  <div class="scoreDetail">
-                    <i class="el-icon-star-on"></i>
-                    {{ 8.3 }}
-                  </div>
-                  <div class="moba">{{ "MOBA1" }}</div>
-                  <div class="esport">ESport</div>
-                </div>
-                <div class="brass">
-                  <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="detail">
-            <el-button>Details</el-button>
-          </div>
-        </div>
+        </ul>
       </div>
-      <div class="recommendFooter">
-        <div>
-          <a>More</a>
-        </div>
-      </div>
+
     </div>
   </div>
 </template>
@@ -175,10 +107,12 @@
 <script>
 
 export default {
+
   data() {
     return {
       userName: "XXX",
       categories: "Category",
+      showSelect: false,
       categaryOptions: [
         {
           value: "option1",
@@ -194,7 +128,53 @@ export default {
         },
       ],
       totalCollectedGames: 16,
-
+      collectedGameList: [
+        {
+          id: "01",
+          name: "2020 World Champs Gaming Warzone",
+          url: require("../../img/invite1.png"),
+          score: 9.5,
+          category: "category1",
+          moba: "MOBA1",
+          brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+        },
+        {
+          id: "02",
+          name: "2020 World Champs Gaming Warzone",
+          url: require("../../img/invite2.png"),
+          score: 8.5,
+          category: "category1",
+          moba: "MOBA1",
+          brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+        },
+        {
+          id: "03",
+          name: "2020 World Champs Gaming Warzone",
+          url: require("../../img/invite3.png"),
+          score: 8.3,
+          category: "category1",
+          moba: "MOBA1",
+          brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+        },
+        {
+          id: "04",
+          name: "2020 World Champs Gaming Warzone",
+          url: require("../../img/invite4.png"),
+          score: 8.1,
+          category: "category1",
+          moba: "MOBA1",
+          brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+        },
+        {
+          id: "05",
+          name: "2020 World Champs Gaming Warzone",
+          url: require("../../img/invite1.png"),
+          score: 9.5,
+          category: "category1",
+          moba: "MOBA1",
+          brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+        }
+      ],
     };
   }
 };
@@ -208,6 +188,18 @@ export default {
 .filters {
   display: flex;
 }
+.operator {
+  display: flex;
+  float: right;
+  margin-right: 1%;
+  margin-bottom: 10px;
+}
+.el-icon-edit, .el-icon-delete {
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  bottom: 10px;
+}
 /*.header, p{*/
 /*  margin-left: 60px;*/
 /*}*/
@@ -220,60 +212,73 @@ export default {
   color: #fff;
 }
 
-.recommendContent {
+.collectionContent {
   width: 100%;
-  margin-left: 1%;
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
-  /* flex-wrap: wrap; */
+  /*justify-content: space-between;*/
+  flex-wrap: wrap;
 }
-.content1,
-.content2,
-.content3,
-.content4 {
-  width: calc((100% - 300px) / 4);
+ul{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+}
+
+.content1{
+  box-sizing: border-box;
+  width: 30%;
+  padding: 0 5px;
   height: 400px;
   margin-bottom: 20px;
-  /* margin-right: 100px; */
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 6px 2px 2px#e6e6e6;
 }
-/* 当不止一行时这么设置 */
-/* .content4:nth-of-type(4n + 0) {
-  margin-right: 0;
-} */
-.recommendPic1 {
+
+.pic {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 10px;
+}
+.collectionPic1 {
   height: 40%;
-  background: url("../../img/invite1.png") no-repeat;
-  background-size: 100% 100%;
+  width: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  display: flex;
 }
-.content2 .recommendPic1 {
-  background: url("../../img/invite2.png") no-repeat;
-  background-size: 100% 100%;
+.layers-item-selector {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  border: solid 0px #ccc;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+  /*below will hide the checkbox*/
+  /*appearance: none;*/
+  /*-webkit-appearance: none;*/
+  user-select: none;
+  -webkit-user-select: none;
 }
-.content3 .recommendPic1 {
-  background: url("../../img/invite3.png") no-repeat;
-  background-size: 100% 100%;
-}
-.content4 .recommendPic1 {
-  background: url("../../img/invite4.png") no-repeat;
-  background-size: 100% 100%;
-}
-.recommendInfo1 {
+.collectionInfo1 {
   height: 40%;
   overflow: hidden;
   text-align: center;
   border-bottom: 1px solid #e6e6e6;
   padding: 0px 20px;
 }
-.recommendInfo1 div {
+.collectionInfo1 div {
   overflow: hidden;
   float: left;
 }
-.recommendInfoBox {
+.collectionInfoBox {
   position: relative;
   height: 100%;
   width: 100%;
@@ -281,11 +286,8 @@ export default {
   float: left;
   margin-left: 1%;
 }
-/*.recommendInfoBox {*/
-/*  !*display: block;*!*/
-/*  float: left;*/
-/*}*/
-.recommendInfoBox .info {
+
+.collectionInfoBox .info {
   position: relative;
   width: 100%;
   bottom: 0px;
@@ -349,17 +351,17 @@ export default {
   border-radius: 10px;
 }
 
-.recommendFooter {
-  width: 98%;
-  margin-left: 1%;
-  overflow: hidden;
-}
-.recommendFooter div {
-  float: right;
-}
-.recommendFooter a {
-  color: #58b5ff;
-  cursor: pointer;
-  font-weight: 700;
-}
+/*.collectionFooter {*/
+/*  width: 98%;*/
+/*  margin-left: 1%;*/
+/*  overflow: hidden;*/
+/*}*/
+/*.collectionFooter div {*/
+/*  float: right;*/
+/*}*/
+/*.collectionFooter a {*/
+/*  color: #58b5ff;*/
+/*  cursor: pointer;*/
+/*  font-weight: 700;*/
+/*}*/
 </style>

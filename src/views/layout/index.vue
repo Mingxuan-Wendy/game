@@ -49,6 +49,9 @@
             prefix-icon="el-icon-search"
             placeholder="Search Everything"
             style="width: 15%; margin-left: -60%"
+            type="input"
+            v-model="input"
+            @input="onInput($event)"
           ></el-input>
           <i class="el-icon-bell" style="margin-right: -65%"></i>
           <i class="el-icon-user" @click="logout"></i>
@@ -66,6 +69,11 @@ export default {
       window.sessionStorage.clear();
       this.$router.push("/login");
     },
+
+    onInput(e) {
+      this.$forceUpdate()
+      // this.replyComment = e.target.innerHTML;
+    }
   },
 };
 </script>
