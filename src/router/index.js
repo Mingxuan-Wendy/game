@@ -2,8 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Router from 'vue-router'
 import Login from '../views/Login/index.vue'
-import Account from '../views/Account/index.vue'
-import Collection from '../views/collection/index.vue'
 
 Vue.use(Router)
 
@@ -23,6 +21,10 @@ const routes = [
             {
                 path:'/collection',
                 component: () => import('../views/collection'),
+            },
+            {
+                path:'/settings',
+                component: () => import('../views/accountSettings'),
             }
         ]
     },
@@ -36,16 +38,6 @@ const routes = [
         name:'Login',
         component:Login
     },
-    {
-        path:'/Account',
-        name:'Account',
-        component:Account
-    },
-    {
-        path:'/collection',
-        name:'Collection',
-        component:Collection
-    }
 ]
 
 const router = new VueRouter({
