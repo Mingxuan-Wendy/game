@@ -29,6 +29,10 @@ const routes = [
             {
                 path:'/settings',
                 component: () => import('../views/accountSettings'),
+            },
+            {
+                path:'/FAQ',
+                component: () => import('../views/FAQ'),
             }
         ]
     },

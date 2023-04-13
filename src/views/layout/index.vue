@@ -1,8 +1,8 @@
 <template>
   <el-container class="home-container">
-    <!-- 页面主体区域 -->
+    <!-- Main content area -->
     <el-container>
-      <!-- 侧边栏 -->
+      <!-- Sidebar -->
       <el-aside width="200px">
         <div>
           <span>LOGO</span>
@@ -41,18 +41,22 @@
           </el-menu-item>
         </el-menu>
       </el-aside>
-      <!-- 右侧内容主体 -->
+      <!-- Top Navigation Bar -->
       <el-main>
         <el-header>
           <i class="el-icon-discover"> Browse </i>
-          <el-input
+          <el-input  class="el-input"
             prefix-icon="el-icon-search"
             placeholder="Search Everything"
-            style="width: 15%; margin-left: -60%"
+            style="width: 18%; margin-left: -60%"
             type="input"
             v-model="input"
             @input="onInput($event)"
           ></el-input>
+
+<!--          <el-icon v-if="isActive" class="is-active"  @click="linkToFAQ">FAQs</el-icon>-->
+<!--          <el-icon v-else class="el-icon-question" @click="linkToFAQ">FAQs</el-icon>-->
+          <el-icon class="el-icon-question"  @click="linkToFAQ">FAQs</el-icon>
           <i class="el-icon-bell" style="margin-right: -65%"></i>
           <i class="el-icon-user" @click="logout"></i>
         </el-header>
@@ -64,15 +68,26 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isActive: false,
+    };
+  },
   methods: {
     logout() {
       window.sessionStorage.clear();
       this.$router.push("/login");
     },
 
-    onInput(e) {
+    onInput() {
       this.$forceUpdate()
       // this.replyComment = e.target.innerHTML;
+    },
+
+    linkToFAQ() {
+      window.sessionStorage.clear();
+      this.isActive = true;
+      this.$router.push("/FAQ");
     }
   },
 };
@@ -86,15 +101,34 @@ export default {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
-  padding-left: 50px;
+  padding-left: 20px;
   align-items: center;
   color: #000;
-  font-size: 20px;
+  font-size: 18px;
   border-bottom: 1px solid #e6e6e6;
 }
-.el-header div {
+.el-icon-discover {
+  float: left;
+  position: relative;
+  width: 10%;
   display: flex;
-  align-items: center;
+}
+.el-icon-question, .is-active {
+  /*float: right;*/
+  position: absolute;
+  width: 4.5%;
+  margin-left: 70%;
+  display: flex;
+  cursor: pointer;
+}
+.el-icon-bell {
+  position: absolute;
+  width: 10%;
+  margin-left: 77%;
+  display: flex;
+}
+.el-input {
+  position: relative;
 }
 .el-aside .el-menu {
   border: 0px;
@@ -124,7 +158,6 @@ export default {
 .el-menu-item:hover i {
   color: #fff !important;
 }
-
 .el-menu-item.is-active {
   background-color: #6e5bd9 !important;
   color: #fff !important;
@@ -133,4 +166,28 @@ export default {
 .el-menu-item.is-active i {
   color: #fff !important;
 }
+.el-icon-question:hover {
+  background-color: #6e5bd9 !important;
+  color: #fff !important;
+  border-radius: 10px;
+}
+.el-icon-question:hover i {
+  color: #fff !important;
+}
+/*.is-active:hover {*/
+/*  background-color: #6e5bd9 !important;*/
+/*  color: #fff !important;*/
+/*  border-radius: 10px;*/
+/*}*/
+/*.is-active:hover i {*/
+/*  color: #fff !important;*/
+/*}*/
+/*.is-active{*/
+/*  background-color: #6e5bd9 !important;*/
+/*  color: #fff !important;*/
+/*  border-radius: 5px;*/
+/*}*/
+/*.is-active el-icon{*/
+/*  color: #fff !important;*/
+/*}*/
 </style>

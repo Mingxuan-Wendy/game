@@ -112,6 +112,7 @@ export default {
     return {
       userName: "XXX",
       categories: "Category",
+      showSelect: false,
       categaryOptions: [
         {
           value: "option1",
