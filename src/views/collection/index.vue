@@ -59,37 +59,32 @@
 
       <div class="collectionContent">
         <ul>
-            <div class="content1" v-for="item in filteredGameList" :key="item.id">
+            <div class="content1" v-for="item in filteredGameList" :key="item['id']">
               <div class="collectionPic1">
-<!--                <img :src="item['url']" width="100%" class="pic">-->
-                <img :src="item.url" width="100%" class="pic">
+                <img :src="item['url']" width="100%" class="pic">
                 <div v-if="showSelect" class="layers-item-selector">
-                  <input type="checkbox" v-model="item.checked" @change="checkedGame(item.id, item.checked)"/>
+                  <input type="checkbox" v-model="item.checked" @change="checkedGame(item['id'], item.checked)"/>
                 </div>
               </div>
 
               <div class="collectionInfo1">
-<!--                <p>{{ item["name"] }}</p>-->
-                <p>{{ item.name }}</p>
+                <p>{{ item["name"] }}</p>
                 <div class="collectionInfoBox">
                   <div class="info">
                     <div class="score">
                       <div class="scoreDetail">
                         <i class="el-icon-star-on"></i>
-<!--                        {{ item["score"] }}-->
-                        {{ item.score }}
+                        {{ item["score"] }}
                       </div>
-<!--                      <div class="moba">{{ item["category"] }}</div>-->
-                      <div class="moba">{{ item.moba }}</div>
-                      <div class="esport">ESport</div>
+                      <div class="moba">{{ item["category"] }}</div>
                     </div>
                     <div class="brass">
-<!--                      <p>{{ item["brass"] }}</p>-->
-                      <p>{{ item.brass }}</p>
+                      <p>{{ item["brass"] }}</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="detail">
                 <el-button>Details</el-button>
               </div>
@@ -102,41 +97,54 @@
 </template>
 
 <script>
-// import axios from "axios";
-
-
-// let processedGameList;
-// processedGameList = [];
-// console.log(processedGameList.length);
+import axios from "axios";
+let processedGameList;
+let total_size;
+let collections;
+let user_id = 1;
 export default {
-  // async created() {
-  //   try{
-  //     const response = await axios.get("http://127.0.0.1:8000/api/user/1/games/");
-  //     var rawCollectedGameList = response.data;
-  //     // processedGameList = [];
-  //     for (var i=0; i < rawCollectedGameList.length; i++) {
-  //       var jsonObj = {};
-  //       jsonObj["id"] = rawCollectedGameList[i]["id"];
-  //       jsonObj["name"] = rawCollectedGameList[i]["names"];
-  //       jsonObj["url"] = require(rawCollectedGameList[i]["image_url"]);
-  //       jsonObj["score"] = rawCollectedGameList[i]["avg_rating"];
-  //       jsonObj["category"] = rawCollectedGameList[i]["category"];
-  //       // brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
-  //       var min_player = rawCollectedGameList[i]["min_players"];
-  //       var max_player = rawCollectedGameList[i]["max_players"];
-  //       var min_time = rawCollectedGameList[i]["min_time"];
-  //       var max_time = rawCollectedGameList[i]["max_time"];
-  //       var age = rawCollectedGameList[i]["age"];
-  //       var weight = rawCollectedGameList[i]["weight"];
-  //       jsonObj["brass"] = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight;
-  //       console.log(jsonObj);
-  //       processedGameList.push(jsonObj);
-  //     }
-  //     this.collectedGameList = processedGameList;
-  //   } catch (error) {
-  //     console.error("Error:", error)
-  //   }
-  // },
+  async created() {
+    try{
+      processedGameList = [];
+
+      const response = await axios.get("http://127.0.0.1:8000/api/user/" + user_id + "/games/");
+      const collectionsResponse = await axios.get("http://127.0.0.1:8000/api/collections/");
+      collections = collectionsResponse.data;
+
+      var rawCollectedGameList = response.data;
+      for (var i=0; i < rawCollectedGameList.length; i++) {
+        var jsonObj = {};
+        jsonObj["id"] = rawCollectedGameList[i]["id"];
+        jsonObj["name"] = rawCollectedGameList[i]["names"];
+        jsonObj["url"] = rawCollectedGameList[i]["image_url"];
+        jsonObj["score"] = rawCollectedGameList[i]["avg_rating"].toFixed(1);
+        jsonObj["category"] = rawCollectedGameList[i]["category"];
+
+        jsonObj["min_time"] = rawCollectedGameList[i]["min_time"];
+        jsonObj["max_time"] = rawCollectedGameList[i]["max_time"];
+        jsonObj["min_players"] = rawCollectedGameList[i]["min_players"];
+        jsonObj["max_players"] = rawCollectedGameList[i]["max_players"];
+        jsonObj["age"] = rawCollectedGameList[i]["age"];
+
+        // brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+        var min_player = rawCollectedGameList[i]["min_players"];
+        var max_player = rawCollectedGameList[i]["max_players"];
+        var min_time = rawCollectedGameList[i]["min_time"];
+        var max_time = rawCollectedGameList[i]["max_time"];
+        var age = rawCollectedGameList[i]["age"];
+        var weight = rawCollectedGameList[i]["weight"];
+        jsonObj["brass"] = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight;
+
+        console.log(jsonObj);
+        processedGameList.push(jsonObj);
+      }
+      this.collectedGameList = processedGameList;
+      total_size = processedGameList.length;
+      console.log(processedGameList.length);
+    } catch (error) {
+      console.error("Error:", error)
+    }
+  },
   data() {
     return {
       userName: "XXX",
@@ -147,7 +155,7 @@ export default {
       showSelect: false,
       categaryOptions: [
         {value: "option1", label: "Adventure",},
-        {value: "option2", label: "Medical",},
+        {value: "option2", label: "Economic",},
         {value: "option3", label: "Card Game",},
       ],
       durationOptions: [
@@ -165,94 +173,9 @@ export default {
         {value: "option2", label: "Accept age between 8~14 ",},
         {value: "option3", label: "Accept for age >=18",},
       ],
-      collectedGameList: [
-        {
-          id: "01",
-          name: "2020 World Champs Gaming Warzone",
-          url: require("../../img/invite1.png"),
-          score: 9.5,
-          category: "Adventure",
-          moba: "MOBA1",
-          brass: "1-4 players 20-60 mins Age:6 weight:3.9/5",
-          min_time: 20,
-          max_time: 60,
-          min_players: 1,
-          max_players: 4,
-          age: 6,
-        },
-        {
-          id: "02",
-          name: "2020 World Champs Gaming Warzone",
-          url: require("../../img/invite2.png"),
-          score: 8.5,
-          category: "Adventure",
-          moba: "MOBA1",
-          brass: "2-4 players 20-60 mins Age:7 weight:3.9/5",
-          min_time: 20,
-          max_time: 60,
-          min_players: 2,
-          max_players: 4,
-          age: 7,
-        },
-        {
-          id: "03",
-          name: "2020 World Champs Gaming Warzone",
-          url: require("../../img/invite3.png"),
-          score: 8.3,
-          category: "Medical",
-          moba: "MOBA1",
-          brass: "2-4 players 80-120 mins Age:12 weight:3.9/5",
-          min_time: 80,
-          max_time: 120,
-          min_players: 2,
-          max_players: 4,
-          age: 12,
-        },
-        {
-          id: "04",
-          name: "2020 World Champs Gaming Warzone",
-          url: require("../../img/invite4.png"),
-          score: 8.1,
-          category: "Medical",
-          moba: "MOBA1",
-          brass: "1-2 players 80-120 mins Age:19 weight:3.9/5",
-          min_time: 80,
-          max_time: 120,
-          min_players: 1,
-          max_players: 2,
-          age: 19,
-        },
-        {
-          id: "05",
-          name: "2020 World Champs Gaming Warzone",
-          url: require("../../img/invite1.png"),
-          score: 9.5,
-          category: "Card Game",
-          moba: "MOBA1",
-          brass: "3-6 players 80-200 mins Age:12 weight:3.9/5",
-          min_time: 80,
-          max_time: 200,
-          min_players: 3,
-          max_players: 6,
-          age: 12,
-        },
-        {
-          id: "06",
-          name: "2020 World Champs Gaming Warzone",
-          url: require("../../img/invite1.png"),
-          score: 9.5,
-          category: "Card Game",
-          moba: "MOBA1",
-          brass: "3-6 players 80-200 mins Age:19 weight:3.9/5",
-          min_time: 80,
-          max_time: 200,
-          min_players: 3,
-          max_players: 6,
-          age: 19,
-        }
-      ],
+      collectedGameList: processedGameList,
       filterGameList: [],
-      totalCollectedGames: 6,
+      totalCollectedGames: total_size,
       checkedGamesId: [],
       isCategorySelected: false,
       isDurationSelected: false,
@@ -262,21 +185,49 @@ export default {
   },
 
   methods: {
+    async onDelete() {
+      try {
+        const deletePromises = this.checkedGamesId.map(async (id) => {
+          const index = this.collectedGameList.findIndex((game) => game["id"] === id);
+          if (index !== -1) {
+            let delete_collection_id;
+
+            if(Array.isArray(collections)) {
+              const foundObject = collections.find(
+                (jsonObject) => jsonObject["game"]["id"] === id && jsonObject["custom_user"] === user_id
+              );
+              if (foundObject) {
+                delete_collection_id = foundObject["id"];
+                console.log("The delete_collection_id value is:", delete_collection_id);
+              } else {
+                console.log("No matching object found.");
+              }
+            }
+
+            // Remove the item from the array
+            console.log(this.collectedGameList[index]["id"] === id);
+            const response = await axios.delete("http://127.0.0.1:8000/api/collections/" + delete_collection_id + "/");
+
+            if (response.status === 204) {
+              console.log('Game successfully deleted from collection!');
+            }
+          }
+        });
+        await Promise.all(deletePromises);
+        console.log(this.collectedGameList.length);
+        // this.$forceUpdate();
+        this.reloadPage();
+      } catch (error) {
+        console.error('Error occurred while delete game in the collection: ', error);
+      }
+    },
+
     checkedGame(id, checked) {
       if (checked) {
         this.checkedGamesId.push(id);
       }
     },
-    onDelete() {
-      this.checkedGamesId.forEach(id => {
-        const index = this.collectedGameList.findIndex(game => game.id === id);
-        if (index !== -1) {
-          this.collectedGameList.splice(index, 1); // Remove the item from the array
-        }
-      });
-      console.log(this.collectedGameList.length);
-      this.$forceUpdate();
-    },
+
     reloadPage() {
       window.location.reload();
     },
@@ -322,28 +273,28 @@ export default {
         if (category === "option1") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.category === "Adventure");
+            this.filterGameList = this.filterGameList.filter(game => game["category"].includes("Adventure"));
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.category === "Adventure");
+            this.filterGameList = this.collectedGameList.filter(game => game["category"].includes("Adventure"));
           }
         }
         else if(category === "option2") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.category === "Medical");
+            this.filterGameList = this.filterGameList.filter(game => game["category"].includes("Economic"));
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.category === "Medical");
+            this.filterGameList = this.collectedGameList.filter(game => game["category"].includes("Economic"));
           }
         }
         else if(category === "option3") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.category === "Card Game");
+            this.filterGameList = this.filterGameList.filter(game => game["category"].includes("Card Game"));
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.category === "Card Game");
+            this.filterGameList = this.collectedGameList.filter(game => game["category"].includes("Card Game"));
           }
         }
         console.log(category);
@@ -355,28 +306,28 @@ export default {
         if (duration === "option1") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.max_time <= 60);
+            this.filterGameList = this.filterGameList.filter(game => game["max_time"] <= 60);
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.max_time <= 60);
+            this.filterGameList = this.collectedGameList.filter(game => game["max_time"] <= 60);
           }
         }
         else if(duration === "option2") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => (game.max_time > 60 && game.max_time <= 180));
+            this.filterGameList = this.filterGameList.filter(game => (game["max_time"] > 60 && game["max_time"] <= 180));
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => (game.max_time > 60 && game.max_time <= 180));
+            this.filterGameList = this.collectedGameList.filter(game => (game["max_time"] > 60 && game["max_time"] <= 180));
           }
         }
         else if(duration === "option3") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.max_time > 180);
+            this.filterGameList = this.filterGameList.filter(game => game["max_time"] > 180);
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.max_time > 180);
+            this.filterGameList = this.collectedGameList.filter(game => game["max_time"] > 180);
           }
         }
         console.log(duration);
@@ -388,28 +339,28 @@ export default {
         if (size === "option1") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.min_players === 1);
+            this.filterGameList = this.filterGameList.filter(game => game["min_players"] === 1);
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.min_players === 1);
+            this.filterGameList = this.collectedGameList.filter(game => game["min_players"] === 1);
           }
         }
         else if(size === "option2") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.max_players <= 4);
+            this.filterGameList = this.filterGameList.filter(game => game["max_players"] <= 4);
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.max_players <= 4);
+            this.filterGameList = this.collectedGameList.filter(game => game["max_players"] <= 4);
           }
         }
         else if(size === "option3") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.max_players > 4);
+            this.filterGameList = this.filterGameList.filter(game => game["max_players"] > 4);
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.max_players > 4);
+            this.filterGameList = this.collectedGameList.filter(game => game["max_players"] > 4);
           }
         }
         console.log(size);
@@ -421,28 +372,28 @@ export default {
         if (age === "option1") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.age <= 8);
+            this.filterGameList = this.filterGameList.filter(game => game["age"] <= 8);
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.age <= 8);
+            this.filterGameList = this.collectedGameList.filter(game => game["age"] <= 8);
           }
         }
         else if(age === "option2") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => (game.age >= 8 && game.age <= 14));
+            this.filterGameList = this.filterGameList.filter(game => (game["age"] >= 8 && game["age"] <= 14));
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => (game.age >= 8 && game.age <= 14));
+            this.filterGameList = this.collectedGameList.filter(game => (game["age"] >= 8 && game["age"] <= 14));
           }
         }
         else if(age === "option3") {
           if (this.filterGameList.length > 0) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.filterGameList.filter(game => game.age >= 18);
+            this.filterGameList = this.filterGameList.filter(game => game["age"] >= 18);
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.filterGameList = this.collectedGameList.filter(game => game.age >= 18);
+            this.filterGameList = this.collectedGameList.filter(game => game["age"] >= 18);
           }
         }
         console.log(age);
@@ -503,9 +454,9 @@ ul{
 
 .content1{
   box-sizing: border-box;
-  width: 30%;
+  width: 23%;
   padding: 0 5px;
-  height: 400px;
+  height: 450px;
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 6px 2px 2px#e6e6e6;
@@ -518,7 +469,7 @@ ul{
   border-radius: 10px;
 }
 .collectionPic1 {
-  height: 40%;
+  height: 45%;
   width: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -542,7 +493,7 @@ ul{
   -webkit-user-select: none;
 }
 .collectionInfo1 {
-  height: 40%;
+  height: 45%;
   overflow: hidden;
   text-align: center;
   border-bottom: 1px solid #e6e6e6;
@@ -571,17 +522,18 @@ ul{
   align-items: left;
 }
 .score {
-  width: 100%;
-  height: 20px;
-  /*margin-top: 10px;*/
   overflow: hidden;
   margin-left: 1%;
+  display: flex;
+  flex-direction: column;
 }
 .score div {
   float: left;
   margin-left: 5px;
 }
 .scoreDetail {
+  width: 16%;
+  height: 1%;
   padding: 0px 5px;
   border-radius: 10px;
   background-color: #ff754c;
@@ -590,14 +542,6 @@ ul{
   text-align: center;
 }
 .moba,
-.esport {
-  padding: 0px 5px;
-  font-size: 12px;
-  color: #3f8cff;
-  text-align: center;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.5);
-}
 .brass {
   width: 100%;
   /*margin-left: %;*/
@@ -608,12 +552,13 @@ ul{
 }
 
 .detail {
-  height: 20%;
+  height: 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   float: right;
   padding: 0px 20px;
+  margin-top: 2%;
 }
 
 .detail .el-button {
@@ -624,17 +569,4 @@ ul{
   border-radius: 10px;
 }
 
-/*.collectionFooter {*/
-/*  width: 98%;*/
-/*  margin-left: 1%;*/
-/*  overflow: hidden;*/
-/*}*/
-/*.collectionFooter div {*/
-/*  float: right;*/
-/*}*/
-/*.collectionFooter a {*/
-/*  color: #58b5ff;*/
-/*  cursor: pointer;*/
-/*  font-weight: 700;*/
-/*}*/
 </style>
