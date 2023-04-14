@@ -19,17 +19,24 @@
                 <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
               </div>
               <div class="detail">
-                <el-button>Details</el-button>
+                <el-button @click="getDetail()">Details</el-button>
               </div>
             </div>
           </div>
         </el-carousel-item>
       </el-carousel>
     </div>
+    <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
+      <GameDetail></GameDetail>
+    </el-dialog>
   </div>
 </template>
 <script>
+import GameDetail from "./gameDetail.vue";
 export default {
+  components: {
+    GameDetail,
+  },
   data() {
     return {
       imgList: [
@@ -58,7 +65,13 @@ export default {
           moba: "MOBA4",
         },
       ],
+      dialogVisible: false,
     };
+  },
+  methods: {
+    getDetail() {
+      this.dialogVisible = true;
+    },
   },
 };
 </script>
