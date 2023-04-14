@@ -12,6 +12,8 @@ import '../plugins/element.js'
 import 'font-awesome/css/font-awesome.min.css'
 import axios from 'axios'
 import router from './router'
+import * as echarts from 'echarts';
+Vue.prototype.$echarts = echarts
 
 // 关闭生产提示
 Vue.config.productionTip = false
