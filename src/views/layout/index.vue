@@ -44,15 +44,21 @@
       <!-- Top Navigation Bar -->
       <el-main>
         <el-header>
-          <i class="el-icon-discover"> Browse </i>
+<!--          <el-dropdown trigger="click">-->
+<!--            <span class="el-dropdown-link">-->
+<!--              <i class="el-icon-discover"> Browse </i>-->
+<!--              <i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
+<!--            </span>-->
+<!--          </el-dropdown>-->
           <el-input  class="el-input"
             prefix-icon="el-icon-search"
             placeholder="Search Everything"
-            style="width: 18%; margin-left: -60%"
+            style="width: 18%; margin-left: 1%"
             type="input"
             v-model="input"
             @input="onInput($event)"
           ></el-input>
+          <el-button class="search-btn" size="medium" @click="search" type="primary">Search</el-button>
 
 <!--          <el-icon v-if="isActive" class="is-active"  @click="linkToFAQ">FAQs</el-icon>-->
 <!--          <el-icon v-else class="el-icon-question" @click="linkToFAQ">FAQs</el-icon>-->
@@ -88,7 +94,10 @@ export default {
       window.sessionStorage.clear();
       this.isActive = true;
       this.$router.push("/FAQ");
-    }
+    },
+    search() {
+
+    },
   },
 };
 </script>
@@ -107,11 +116,12 @@ export default {
   font-size: 18px;
   border-bottom: 1px solid #e6e6e6;
 }
-.el-icon-discover {
-  float: left;
-  position: relative;
-  width: 10%;
-  display: flex;
+.search-btn {
+  position: absolute;
+  width: 6%;
+  margin-left: 18%;
+  cursor: pointer;
+  align-items: center;
 }
 .el-icon-question, .is-active {
   /*float: right;*/
@@ -128,7 +138,11 @@ export default {
   display: flex;
 }
 .el-input {
+  float: left;
   position: relative;
+  width: 10%;
+  display: flex;
+  cursor: pointer;
 }
 .el-aside .el-menu {
   border: 0px;
