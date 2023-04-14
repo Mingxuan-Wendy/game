@@ -1,7 +1,8 @@
 import Vue from "vue";
 import { Button,Tag, Form, FormItem, Input, Message, Container, 
     Header, Aside, Main, Menu, Submenu, MenuItem, MenuItemGroup,Carousel,
-    CarouselItem,Select,Option, Card, Row, Col, Avatar, Upload, Dialog,TabPane,Tabs } from 'element-ui'
+    CarouselItem, Select, Option, Card, Row, Col, Avatar, Upload, Dialog, TabPane, Tabs,
+    Rate} from 'element-ui'
  
 Vue.use(Button)
 Vue.use(Form)
@@ -28,4 +29,5 @@ Vue.use(Upload)
 Vue.use(Dialog)
 Vue.use(TabPane)
 Vue.use(Tabs)
+Vue.use(Rate)
 Vue.prototype.$message = Message

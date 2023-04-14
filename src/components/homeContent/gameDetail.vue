@@ -29,7 +29,9 @@
         <el-tab-pane label="Overview" name="first">
           <GameDetailOverview></GameDetailOverview>
         </el-tab-pane>
-        <el-tab-pane label="Ratings" name="second">Ratings</el-tab-pane>
+        <el-tab-pane label="Ratings" name="second">
+          <GameDetailRating></GameDetailRating>
+        </el-tab-pane>
         <el-tab-pane label="Shopping" name="third">Shopping</el-tab-pane>
       </el-tabs>
     </div>
@@ -37,9 +39,11 @@
 </template>
 <script>
 import GameDetailOverview from "./gameDetailOverview.vue";
+import GameDetailRating from "./gameDetailRating.vue";
 export default {
   components: {
     GameDetailOverview,
+    GameDetailRating,
   },
   data() {
     return {
