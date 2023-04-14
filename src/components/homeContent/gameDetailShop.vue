@@ -96,7 +96,7 @@ export default {
   background: url("../../img/invite1.png") no-repeat;
   background-size: 100% 100%;
 }
-.trend {
+/* .trend {
   width: 40%;
-}
+} */
 </style>
