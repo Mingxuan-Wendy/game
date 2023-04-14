@@ -153,7 +153,7 @@ export default {
 </script>
 <style scoped>
 .recommend {
-  width: 90%;
+  width: 98%;
   margin-left: 1%;
   margin-top: 40px;
 }
@@ -171,7 +171,7 @@ export default {
   margin-right: 20px;
 }
 .recommendContent {
-  width: 100%;
+  width: 98%;
   margin-left: 1%;
   margin-top: 20px;
   display: flex;

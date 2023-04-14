@@ -44,13 +44,14 @@
       <!-- Top Navigation Bar -->
       <el-main>
         <el-header>
-<!--          <el-dropdown trigger="click">-->
-<!--            <span class="el-dropdown-link">-->
-<!--              <i class="el-icon-discover"> Browse </i>-->
-<!--              <i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
-<!--            </span>-->
-<!--          </el-dropdown>-->
-          <el-input  class="el-input"
+          <!--          <el-dropdown trigger="click">-->
+          <!--            <span class="el-dropdown-link">-->
+          <!--              <i class="el-icon-discover"> Browse </i>-->
+          <!--              <i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
+          <!--            </span>-->
+          <!--          </el-dropdown>-->
+          <el-input
+            class="el-input"
             prefix-icon="el-icon-search"
             placeholder="Search Everything"
             style="width: 18%; margin-left: 1%"
@@ -58,11 +59,17 @@
             v-model="input"
             @input="onInput($event)"
           ></el-input>
-          <el-button class="search-btn" size="medium" @click="search" type="primary">Search</el-button>
+          <el-button
+            class="search-btn"
+            size="medium"
+            @click="search"
+            type="primary"
+            >Search</el-button
+          >
 
-<!--          <el-icon v-if="isActive" class="is-active"  @click="linkToFAQ">FAQs</el-icon>-->
-<!--          <el-icon v-else class="el-icon-question" @click="linkToFAQ">FAQs</el-icon>-->
-          <el-icon class="el-icon-question"  @click="linkToFAQ">FAQs</el-icon>
+          <!--          <el-icon v-if="isActive" class="is-active"  @click="linkToFAQ">FAQs</el-icon>-->
+          <!--          <el-icon v-else class="el-icon-question" @click="linkToFAQ">FAQs</el-icon>-->
+          <i class="el-icon-question" @click="linkToFAQ">FAQs</i>
           <i class="el-icon-bell" style="margin-right: -65%"></i>
           <i class="el-icon-user" @click="logout"></i>
         </el-header>
@@ -77,6 +84,7 @@ export default {
   data() {
     return {
       isActive: false,
+      input: "",
     };
   },
   methods: {
@@ -86,7 +94,7 @@ export default {
     },
 
     onInput() {
-      this.$forceUpdate()
+      this.$forceUpdate();
       // this.replyComment = e.target.innerHTML;
     },
 
@@ -95,9 +103,7 @@ export default {
       this.isActive = true;
       this.$router.push("/FAQ");
     },
-    search() {
-
-    },
+    search() {},
   },
 };
 </script>
@@ -123,7 +129,8 @@ export default {
   cursor: pointer;
   align-items: center;
 }
-.el-icon-question, .is-active {
+.el-icon-question,
+.is-active {
   /*float: right;*/
   position: absolute;
   width: 4.5%;
