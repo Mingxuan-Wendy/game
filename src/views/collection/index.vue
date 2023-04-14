@@ -171,9 +171,9 @@ export default {
           name: "2020 World Champs Gaming Warzone",
           url: require("../../img/invite1.png"),
           score: 9.5,
-          category: "category1",
+          category: "Adventure",
           moba: "MOBA1",
-          brass: "1-4 players 20-60 mins Age:12+ weight:3.9/5",
+          brass: "1-4 players 20-60 mins Age:6 weight:3.9/5",
           min_time: 20,
           max_time: 60,
           min_players: 1,
@@ -185,9 +185,9 @@ export default {
           name: "2020 World Champs Gaming Warzone",
           url: require("../../img/invite2.png"),
           score: 8.5,
-          category: "category1",
+          category: "Adventure",
           moba: "MOBA1",
-          brass: "2-4 players 20-60 mins Age:19+ weight:3.9/5",
+          brass: "2-4 players 20-60 mins Age:7 weight:3.9/5",
           min_time: 20,
           max_time: 60,
           min_players: 2,
@@ -199,9 +199,9 @@ export default {
           name: "2020 World Champs Gaming Warzone",
           url: require("../../img/invite3.png"),
           score: 8.3,
-          category: "category1",
+          category: "Medical",
           moba: "MOBA1",
-          brass: "2-4 players 80-120 mins Age:12+ weight:3.9/5",
+          brass: "2-4 players 80-120 mins Age:12 weight:3.9/5",
           min_time: 80,
           max_time: 120,
           min_players: 2,
@@ -213,9 +213,9 @@ export default {
           name: "2020 World Champs Gaming Warzone",
           url: require("../../img/invite4.png"),
           score: 8.1,
-          category: "category1",
+          category: "Medical",
           moba: "MOBA1",
-          brass: "1-2 players 80-120 mins Age:19+ weight:3.9/5",
+          brass: "1-2 players 80-120 mins Age:19 weight:3.9/5",
           min_time: 80,
           max_time: 120,
           min_players: 1,
@@ -227,9 +227,9 @@ export default {
           name: "2020 World Champs Gaming Warzone",
           url: require("../../img/invite1.png"),
           score: 9.5,
-          category: "category1",
+          category: "Card Game",
           moba: "MOBA1",
-          brass: "3-6 players 80-200 mins Age:12+ weight:3.9/5",
+          brass: "3-6 players 80-200 mins Age:12 weight:3.9/5",
           min_time: 80,
           max_time: 200,
           min_players: 3,
@@ -241,9 +241,9 @@ export default {
           name: "2020 World Champs Gaming Warzone",
           url: require("../../img/invite1.png"),
           score: 9.5,
-          category: "category1",
+          category: "Card Game",
           moba: "MOBA1",
-          brass: "3-6 players 80-200 mins Age:19+ weight:3.9/5",
+          brass: "3-6 players 80-200 mins Age:19 weight:3.9/5",
           min_time: 80,
           max_time: 200,
           min_players: 3,
@@ -309,7 +309,46 @@ export default {
           return this.collectedGameList;
         }
       }
-      // let filteredGameList = [];
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      this.filterGameList = [];
+      console.log(this.isCategorySelected);
+      console.log(this.isDurationSelected);
+      console.log(this.isSizeSelected);
+      console.log(this.isAgeSelected);
+
+      if (this.isCategorySelected) {
+        let category;
+        category = this.categories;
+        if (category === "option1") {
+          if (this.filterGameList.length > 0) {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.filterGameList = this.filterGameList.filter(game => game.category === "Adventure");
+          } else {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.filterGameList = this.collectedGameList.filter(game => game.category === "Adventure");
+          }
+        }
+        else if(category === "option2") {
+          if (this.filterGameList.length > 0) {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.filterGameList = this.filterGameList.filter(game => game.category === "Medical");
+          } else {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.filterGameList = this.collectedGameList.filter(game => game.category === "Medical");
+          }
+        }
+        else if(category === "option3") {
+          if (this.filterGameList.length > 0) {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.filterGameList = this.filterGameList.filter(game => game.category === "Card Game");
+          } else {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.filterGameList = this.collectedGameList.filter(game => game.category === "Card Game");
+          }
+        }
+        console.log(category);
+      }
+
       if (this.isDurationSelected) {
         let duration;
         duration = this.durations;
@@ -342,6 +381,7 @@ export default {
         }
         console.log(duration);
       }
+
       if (this.isSizeSelected) {
         let size;
         size = this.sizes;
@@ -374,6 +414,7 @@ export default {
         }
         console.log(size);
       }
+
       if (this.isAgeSelected) {
         let age;
         age = this.ages;
@@ -406,6 +447,7 @@ export default {
         }
         console.log(age);
       }
+
       return this.filterGameList;
     },
   }
