@@ -32,9 +32,6 @@
         <el-tab-pane label="Ratings" name="second">
           <GameDetailRating></GameDetailRating>
         </el-tab-pane>
-        <el-tab-pane label="Shopping" name="third">
-          <GameDetailShop></GameDetailShop>
-        </el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -42,12 +39,11 @@
 <script>
 import GameDetailOverview from "./gameDetailOverview.vue";
 import GameDetailRating from "./gameDetailRating.vue";
-import GameDetailShop from "./gameDetailShop.vue";
+
 export default {
   components: {
     GameDetailOverview,
     GameDetailRating,
-    GameDetailShop,
   },
   data() {
     return {

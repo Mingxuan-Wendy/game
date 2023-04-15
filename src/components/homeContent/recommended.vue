@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="detail">
-          <el-button>Details</el-button>
+          <el-button @click="clickDetails">Details</el-button>
         </div>
       </div>
 
@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="detail">
-          <el-button>Details</el-button>
+          <el-button @click="clickDetails">Details</el-button>
         </div>
       </div>
 
@@ -84,7 +84,7 @@
           </div>
         </div>
         <div class="detail">
-          <el-button>Details</el-button>
+          <el-button @click="clickDetails">Details</el-button>
         </div>
       </div>
 
@@ -109,7 +109,7 @@
           </div>
         </div>
         <div class="detail">
-          <el-button>Details</el-button>
+          <el-button @click="clickDetails">Details</el-button>
         </div>
       </div>
     </div>
@@ -118,10 +118,20 @@
         <a>More</a>
       </div>
     </div>
+
+    <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
+      <GameDetail></GameDetail>
+    </el-dialog>
   </div>
 </template>
 <script>
+import GameDetail from "@/components/homeContent/gameDetail.vue";
+
 export default {
+  components: {
+    GameDetail,
+  },
+
   data() {
     return {
       options: [
@@ -147,7 +157,14 @@ export default {
         },
       ],
       value: "Diatance",
+      dialogVisible: false,
     };
+  },
+
+  methods: {
+    clickDetails() {
+      this.dialogVisible = true;
+    }
   },
 };
 </script>

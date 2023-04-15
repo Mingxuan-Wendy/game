@@ -86,23 +86,30 @@
               </div>
 
               <div class="detail">
-                <el-button>Details</el-button>
+                <el-button @click="clickDetails">Details</el-button>
               </div>
             </div>
         </ul>
       </div>
-
     </div>
+    <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
+      <GameDetail></GameDetail>
+    </el-dialog>
   </div>
 </template>
 
 <script>
+import GameDetail from "@/components/homeContent/gameDetail.vue";
 import axios from "axios";
 let processedGameList;
-let total_size;
+let total_size = 0;
 let collections;
 let user_id = 1;
 export default {
+  components: {
+    GameDetail,
+  },
+
   async created() {
     try{
       processedGameList = [];
@@ -139,7 +146,7 @@ export default {
         processedGameList.push(jsonObj);
       }
       this.collectedGameList = processedGameList;
-      total_size = processedGameList.length;
+      this.totalCollectedGames = processedGameList.length;
       console.log(processedGameList.length);
     } catch (error) {
       console.error("Error:", error)
@@ -180,7 +187,8 @@ export default {
       isCategorySelected: false,
       isDurationSelected: false,
       isSizeSelected: false,
-      isAgeSelected: false
+      isAgeSelected: false,
+      dialogVisible: false,
     };
   },
 
@@ -250,6 +258,10 @@ export default {
     onAgeSelected() {
       this.isAgeSelected = true;
       this.$forceUpdate();
+    },
+
+    clickDetails() {
+      this.dialogVisible = true;
     }
   },
 

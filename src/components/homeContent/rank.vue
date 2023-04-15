@@ -26,7 +26,7 @@
               <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
             </div>
             <div class="detail">
-              <el-button>Details</el-button>
+              <el-button @click="clickDetails">Details</el-button>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
                     <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
                   </div>
                   <div class="detail2">
-                    <el-button>Details</el-button>
+                    <el-button @click="clickDetails">Details</el-button>
                   </div>
                 </div>
               </div>
@@ -86,7 +86,7 @@
                     <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
                   </div>
                   <div class="detail2">
-                    <el-button>Details</el-button>
+                    <el-button @click="clickDetails">Details</el-button>
                   </div>
                 </div>
               </div>
@@ -115,7 +115,7 @@
                     <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
                   </div>
                   <div class="detail2">
-                    <el-button>Details</el-button>
+                    <el-button @click="clickDetails">Details</el-button>
                   </div>
                 </div>
               </div>
@@ -129,8 +129,32 @@
         <a>More</a>
       </div>
     </div>
+
+    <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
+      <GameDetail></GameDetail>
+    </el-dialog>
   </div>
 </template>
+
+<script>
+import GameDetail from "@/components/homeContent/gameDetail.vue";
+
+export default {
+  components: {
+    GameDetail,
+  },
+  data() {
+    return {
+      dialogVisible: false,
+    }
+  },
+  methods: {
+    clickDetails() {
+      this.dialogVisible = true;
+    },
+  }
+}
+</script>
 
 <style scoped>
 .gameRank {

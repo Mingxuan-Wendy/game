@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Router from 'vue-router'
 import Login from '../views/Login/index.vue'
+import gameSearchResults from "@/views/gameSearchResults/index.vue";
 
 Vue.use(Router)
 
@@ -27,6 +28,10 @@ const routes = [
                 component: () => import('../views/invite'),
             },
             {
+                path:'/shopping',
+                component: () => import('../views/shopping'),
+            },
+            {
                 path:'/settings',
                 component: () => import('../views/accountSettings'),
             },
@@ -45,6 +50,11 @@ const routes = [
         path:'/Login',
         name:'Login',
         component:Login
+    },
+    {
+        path:'/gameSearchResults/:input_value',
+        name: 'gameSearchResults',
+        component: gameSearchResults,
     },
 ]
 

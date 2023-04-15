@@ -56,7 +56,7 @@
             placeholder="Search Everything"
             style="width: 18%; margin-left: 1%"
             type="input"
-            v-model="input"
+            v-model="input_value"
             @input="onInput($event)"
           ></el-input>
           <el-button
@@ -84,7 +84,7 @@ export default {
   data() {
     return {
       isActive: false,
-      input: "",
+      input_value: "",
     };
   },
   methods: {
@@ -95,7 +95,6 @@ export default {
 
     onInput() {
       this.$forceUpdate();
-      // this.replyComment = e.target.innerHTML;
     },
 
     linkToFAQ() {
@@ -103,7 +102,9 @@ export default {
       this.isActive = true;
       this.$router.push("/FAQ");
     },
-    search() {},
+    search() {
+      this.$router.push({ name: 'gameSearchResults', params: { input_value: this.input_value } });
+    },
   },
 };
 </script>
