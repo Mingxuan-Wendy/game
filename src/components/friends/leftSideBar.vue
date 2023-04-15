@@ -1,7 +1,12 @@
 <template>
   <div class="sideBar">
     <el-aside width="200px">
-      <el-menu background-color="#fff" text-color="#000" default-active="1">
+      <el-menu
+        background-color="#fff"
+        text-color="#000"
+        default-active="1"
+        style="border: 0px"
+      >
         <div style="margin-top: 20px; margin-left: 20px">
           <span>Friends</span>
         </div>
@@ -26,6 +31,9 @@
   </div>
 </template>
 <style scoped>
+.sideBar {
+  width: 11%;
+}
 .el-menu-item {
   border-radius: 10px;
   text-align: center;
