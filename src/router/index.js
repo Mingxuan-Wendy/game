@@ -24,6 +24,10 @@ const routes = [
                 component: () => import('../views/collection'),
             },
             {
+                path:'/friends',
+                component: () => import('../views/friends'),
+            },
+            {
                 path:'/invite',
                 component: () => import('../views/invite'),
             },

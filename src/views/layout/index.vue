@@ -8,7 +8,12 @@
           <span>LOGO</span>
           <i class="el-icon-s-fold" style="margin-left: 60px"></i>
         </div>
-        <el-menu router background-color="#fff" text-color="#000">
+        <el-menu
+          router
+          background-color="#fff"
+          text-color="#000"
+          default-active="/homeContent"
+        >
           <el-menu-item index="/homeContent">
             <template slot="title">
               <i class="el-icon-s-home"></i>
@@ -74,7 +79,6 @@ export default {
     return {
       isActive: false,
       input_value: "",
-
     };
   },
   methods: {
