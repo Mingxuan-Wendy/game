@@ -4,11 +4,17 @@
     <div class="friendsInfo">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="Andy1" name="first">
-          <FriendDetailInfo></FriendDetailInfo>
+          <FriendDetailInfo :friendIndex="friendIndex"></FriendDetailInfo>
         </el-tab-pane>
-        <el-tab-pane label="Andy2" name="second"></el-tab-pane>
-        <el-tab-pane label="Andy3" name="third"></el-tab-pane>
-        <el-tab-pane label="Andy4" name="fourth">Andy</el-tab-pane>
+        <el-tab-pane label="Andy2" name="second">
+          <FriendDetailInfo :friendIndex="friendIndex"></FriendDetailInfo>
+        </el-tab-pane>
+        <el-tab-pane label="Andy3" name="third">
+          <FriendDetailInfo :friendIndex="friendIndex"></FriendDetailInfo>
+        </el-tab-pane>
+        <el-tab-pane label="Andy4" name="fourth">
+          <FriendDetailInfo :friendIndex="friendIndex"></FriendDetailInfo>
+        </el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -22,11 +28,12 @@ export default {
   data() {
     return {
       activeName: "first",
+      friendIndex: "0",
     };
   },
   methods: {
-    handleClick(tab, event) {
-      console.log(tab, event);
+    handleClick(event) {
+      this.friendIndex = event.index;
     },
   },
 };
