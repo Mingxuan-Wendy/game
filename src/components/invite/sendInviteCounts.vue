@@ -100,13 +100,18 @@
         </div>
       </div>
     </div>
-    <div class="more">
+    <div class="more" @click="getDialogVisible()">
       <div>More</div>
     </div>
+    <el-dialog :visible.sync="dialogVisible" width="80%">
+      <MoreTab></MoreTab>
+    </el-dialog>
   </div>
 </template>
 <script>
+import MoreTab from "./moreTab.vue";
 export default {
+  components: { MoreTab },
   data() {
     return {
       options: [
@@ -197,7 +202,13 @@ export default {
           distance: "0.5km",
         },
       ],
+      dialogVisible: false,
     };
+  },
+  methods: {
+    getDialogVisible() {
+      this.dialogVisible = true;
+    },
   },
 };
 </script>
@@ -281,6 +292,7 @@ export default {
   height: 10px;
   border-radius: 50%;
   background-color: #0049c6;
+  margin-right: 10%;
 }
 .inviteDetail .el-button {
   background-color: #3f8cff;
@@ -307,6 +319,7 @@ export default {
   font-weight: 700;
   color: #58b5ff;
   overflow: hidden;
+  cursor: pointer;
 }
 .more div {
   float: right;
