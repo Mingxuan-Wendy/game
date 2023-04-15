@@ -41,15 +41,8 @@
           </el-menu-item>
         </el-menu>
       </el-aside>
-      <!-- Top Navigation Bar -->
       <el-main>
         <el-header>
-          <!--          <el-dropdown trigger="click">-->
-          <!--            <span class="el-dropdown-link">-->
-          <!--              <i class="el-icon-discover"> Browse </i>-->
-          <!--              <i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
-          <!--            </span>-->
-          <!--          </el-dropdown>-->
           <el-input
             class="el-input"
             prefix-icon="el-icon-search"
@@ -66,9 +59,6 @@
             type="primary"
             >Search</el-button
           >
-
-          <!--          <el-icon v-if="isActive" class="is-active"  @click="linkToFAQ">FAQs</el-icon>-->
-          <!--          <el-icon v-else class="el-icon-question" @click="linkToFAQ">FAQs</el-icon>-->
           <i class="el-icon-question" @click="linkToFAQ">FAQs</i>
           <i class="el-icon-bell" style="margin-right: -65%"></i>
           <i class="el-icon-user" @click="logout"></i>
@@ -103,7 +93,10 @@ export default {
       this.$router.push("/FAQ");
     },
     search() {
-      this.$router.push({ name: 'gameSearchResults', params: { input_value: this.input_value } });
+      this.$router.push({
+        name: "gameSearchResults",
+        params: { input_value: this.input_value },
+      });
     },
   },
 };
@@ -130,15 +123,6 @@ export default {
   cursor: pointer;
   align-items: center;
 }
-.el-icon-question,
-.is-active {
-  /*float: right;*/
-  position: absolute;
-  width: 4.5%;
-  margin-left: 70%;
-  display: flex;
-  cursor: pointer;
-}
 .el-icon-bell {
   position: absolute;
   width: 10%;
@@ -151,6 +135,9 @@ export default {
   width: 10%;
   display: flex;
   cursor: pointer;
+}
+.el-aside {
+  overflow: hidden;
 }
 .el-aside .el-menu {
   border: 0px;
@@ -196,20 +183,4 @@ export default {
 .el-icon-question:hover i {
   color: #fff !important;
 }
-/*.is-active:hover {*/
-/*  background-color: #6e5bd9 !important;*/
-/*  color: #fff !important;*/
-/*  border-radius: 10px;*/
-/*}*/
-/*.is-active:hover i {*/
-/*  color: #fff !important;*/
-/*}*/
-/*.is-active{*/
-/*  background-color: #6e5bd9 !important;*/
-/*  color: #fff !important;*/
-/*  border-radius: 5px;*/
-/*}*/
-/*.is-active el-icon{*/
-/*  color: #fff !important;*/
-/*}*/
 </style>
