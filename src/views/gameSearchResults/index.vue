@@ -1,7 +1,5 @@
 <template>
   <div>
-<!--    <Layout>    </Layout>-->
-
     <div class="searchResults">
         <div class="searchResultsContent">
           <ul>
@@ -64,7 +62,6 @@ export default {
     clickDetails() {
       this.dialogVisible = true;
     },
-
     async fetchGameData() {
       try{
         processedGameList = [];
@@ -210,7 +207,7 @@ ul{
   margin-left: 5px;
 }
 .scoreDetail {
-  width: 16%;
+  width: 20%;
   height: 1%;
   padding: 0px 5px;
   border-radius: 10px;

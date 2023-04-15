@@ -202,7 +202,7 @@ export default {
 
             if(Array.isArray(collections)) {
               const foundObject = collections.find(
-                (jsonObject) => jsonObject["game"]["id"] === id && jsonObject["custom_user"] === user_id
+                (jsonObject) => jsonObject["game"] === id && jsonObject["custom_user"] === user_id
               );
               if (foundObject) {
                 delete_collection_id = foundObject["id"];
@@ -214,6 +214,7 @@ export default {
 
             // Remove the item from the array
             console.log(this.collectedGameList[index]["id"] === id);
+            console.log(delete_collection_id);
             const response = await axios.delete("http://127.0.0.1:8000/api/collections/" + delete_collection_id + "/");
 
             if (response.status === 204) {

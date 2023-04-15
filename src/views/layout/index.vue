@@ -51,7 +51,7 @@
           <el-input
             class="el-input"
             prefix-icon="el-icon-search"
-            placeholder="Search game by name"
+            placeholder="Search by name, eg: chess"
             style="width: 18%; margin-left: 1%"
             type="input"
             v-model="input_value"
@@ -65,7 +65,7 @@
             >Search</el-button
           >
           <i class="el-icon-question" @click="linkToFAQ">FAQs</i>
-          <i class="el-icon-user" @click="logout"></i>
+          <i class="el-icon-user" @click="logout">Logout</i>
         </el-header>
         <router-view></router-view>
       </el-main>
@@ -175,7 +175,10 @@ export default {
 }
 .el-icon-question {
   cursor: pointer;
-  margin-left: 70%;
+  margin-left: 65%;
+}
+.el-icon-user {
+  cursor: pointer;
 }
 .el-icon-question:hover {
   background-color: #6e5bd9 !important;
@@ -183,6 +186,14 @@ export default {
   border-radius: 10px;
 }
 .el-icon-question:hover i {
+  color: #fff !important;
+}
+.el-icon-user:hover {
+  background-color: #6e5bd9 !important;
+  color: #fff !important;
+  border-radius: 10px;
+}
+.el-icon-user:hover i {
   color: #fff !important;
 }
 </style>
