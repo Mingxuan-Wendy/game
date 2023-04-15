@@ -18,33 +18,90 @@
         <i class="el-icon-menu"></i>
       </div>
     </div>
-    <div class="sendInviteCarousel">
-      <el-carousel height="400px" style="margin-top: 20px" type="card">
-        <el-carousel-item
-          class="el-car-item"
-          v-for="(item, index) in dataList"
-          :key="index"
-        >
-          <div class="content1">
-            <div class="invitePic1"></div>
-            <div class="inviteInfo1">
-              <p>{{ item.title }}</p>
-              <div class="inviteInfoBox">
-                <el-avatar :src="item.imgUrl"></el-avatar>
-                <div class="text">
-                  <p>{{ item.title1 }}</p>
-                  <p>{{ item.title2 }}</p>
-                </div>
-              </div>
-            </div>
-            <div class="inviteDetail">
-              <div class="point"></div>
-              <span>{{ item.distance }}</span>
-              <el-button>Check</el-button>
+    <div class="sendInviteContent">
+      <div class="content1">
+        <div class="invitePic1"></div>
+        <div class="inviteInfo1">
+          <p>2020 World Champs Gaming Warzone</p>
+          <div class="inviteInfoBox">
+            <el-avatar
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            ></el-avatar>
+            <div class="text">
+              <p>Tam Tran</p>
+              <p>Call of Duty</p>
             </div>
           </div>
-        </el-carousel-item>
-      </el-carousel>
+        </div>
+        <div class="inviteDetail">
+          <div class="point"></div>
+          <span>0.2km</span>
+          <el-button>Check</el-button>
+        </div>
+      </div>
+      <div class="content1">
+        <div class="invitePic1"></div>
+        <div class="inviteInfo1">
+          <p>2020 World Champs Gaming Warzone</p>
+          <div class="inviteInfoBox">
+            <el-avatar
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            ></el-avatar>
+            <div class="text">
+              <p>Tam Tran</p>
+              <p>Call of Duty</p>
+            </div>
+          </div>
+        </div>
+        <div class="inviteDetail">
+          <div class="point"></div>
+          <span>0.2km</span>
+          <el-button>Check</el-button>
+        </div>
+      </div>
+      <div class="content1">
+        <div class="invitePic1"></div>
+        <div class="inviteInfo1">
+          <p>2020 World Champs Gaming Warzone</p>
+          <div class="inviteInfoBox">
+            <el-avatar
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            ></el-avatar>
+            <div class="text">
+              <p>Tam Tran</p>
+              <p>Call of Duty</p>
+            </div>
+          </div>
+        </div>
+        <div class="inviteDetail">
+          <div class="point"></div>
+          <span>0.2km</span>
+          <el-button>Check</el-button>
+        </div>
+      </div>
+      <div class="content1">
+        <div class="invitePic1"></div>
+        <div class="inviteInfo1">
+          <p>2020 World Champs Gaming Warzone</p>
+          <div class="inviteInfoBox">
+            <el-avatar
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            ></el-avatar>
+            <div class="text">
+              <p>Tam Tran</p>
+              <p>Call of Duty</p>
+            </div>
+          </div>
+        </div>
+        <div class="inviteDetail">
+          <div class="point"></div>
+          <span>0.2km</span>
+          <el-button>Check</el-button>
+        </div>
+      </div>
+    </div>
+    <div class="more">
+      <div>More</div>
     </div>
   </div>
 </template>
@@ -167,20 +224,15 @@ export default {
 .icons i {
   margin-left: 20px;
 }
-.sendInviteCarousel {
+.sendInviteContent {
   width: 98%;
   margin-left: 1%;
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
-/* .el-carousel__item .content1 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 200px;
-    margin: 0;
-  } */
 .content1 {
-  width: 100%;
+  width: calc((100% - 300px) / 4);
   height: 400px;
   margin-bottom: 20px;
   border-radius: 20px;
@@ -208,8 +260,6 @@ export default {
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-left: 30%;
-  transform: translateX(-50%);
 }
 .inviteInfoBox .el-avatar--circle {
   display: block;
@@ -231,7 +281,6 @@ export default {
   height: 10px;
   border-radius: 50%;
   background-color: #0049c6;
-  margin-left: 1%;
 }
 .inviteDetail .el-button {
   background-color: #3f8cff;
@@ -242,10 +291,24 @@ export default {
 .inviteDetail span {
   margin-left: -155px;
 }
-</style>
-<style>
-.el-carousel__item--card {
-  width: 25%;
-  margin: 0;
+.inviteFooter div {
+  float: right;
+}
+.inviteFooter a {
+  color: #58b5ff;
+  cursor: pointer;
+  font-weight: 700;
+}
+.more {
+  width: 98%;
+  margin-left: 1%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #58b5ff;
+  overflow: hidden;
+}
+.more div {
+  float: right;
 }
 </style>
