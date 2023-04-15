@@ -60,7 +60,6 @@
             >Search</el-button
           >
           <i class="el-icon-question" @click="linkToFAQ">FAQs</i>
-          <i class="el-icon-bell" style="margin-right: -65%"></i>
           <i class="el-icon-user" @click="logout"></i>
         </el-header>
         <router-view></router-view>
@@ -123,12 +122,6 @@ export default {
   cursor: pointer;
   align-items: center;
 }
-.el-icon-bell {
-  position: absolute;
-  width: 10%;
-  margin-left: 77%;
-  display: flex;
-}
 .el-input {
   float: left;
   position: relative;
@@ -174,6 +167,10 @@ export default {
 }
 .el-menu-item.is-active i {
   color: #fff !important;
+}
+.el-icon-question {
+  cursor: pointer;
+  margin-left: 70%;
 }
 .el-icon-question:hover {
   background-color: #6e5bd9 !important;
