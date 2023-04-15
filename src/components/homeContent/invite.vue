@@ -30,7 +30,7 @@
         <div class="inviteDetail">
           <div class="point"></div>
           <span>0.2km</span>
-          <el-button>Check</el-button>
+          <el-button @click="getCheckDetail(1)">Check</el-button>
         </div>
       </div>
       <div class="content2">
@@ -50,7 +50,7 @@
         <div class="inviteDetail">
           <div class="point"></div>
           <span>0.2km</span>
-          <el-button>Check</el-button>
+          <el-button @click="getCheckDetail(2)">Check</el-button>
         </div>
       </div>
       <div class="content3">
@@ -70,7 +70,7 @@
         <div class="inviteDetail">
           <div class="point"></div>
           <span>0.2km</span>
-          <el-button>Check</el-button>
+          <el-button @click="getCheckDetail(3)">Check</el-button>
         </div>
       </div>
       <div class="content4">
@@ -90,14 +90,19 @@
         <div class="inviteDetail">
           <div class="point"></div>
           <span>0.2km</span>
-          <el-button>Check</el-button>
+          <el-button @click="getCheckDetail(4)">Check</el-button>
         </div>
       </div>
     </div>
+    <el-dialog :visible.sync="dialogVisible" width="20%" title="inviteDetail:">
+      <CheckTab :checkId="checkId"></CheckTab>
+    </el-dialog>
   </div>
 </template>
 <script>
+import CheckTab from "../../components/checkTab.vue";
 export default {
+  components: { CheckTab },
   data() {
     return {
       options: [
@@ -123,7 +128,15 @@ export default {
         },
       ],
       value: "Diatance",
+      dialogVisible: false,
+      checkId: null,
     };
+  },
+  methods: {
+    getCheckDetail(index) {
+      this.checkId = index;
+      this.dialogVisible = true;
+    },
   },
 };
 </script>
