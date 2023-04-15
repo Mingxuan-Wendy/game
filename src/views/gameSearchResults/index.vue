@@ -56,7 +56,11 @@ export default {
       processedGameList = [];
       search_content = this.input_value;
       console.log("search_content: " + search_content);
-      const response = await axios.get("http://127.0.0.1:8000/api/search/" + search_content + "/");
+      const data = {
+        query: search_content,
+        search_type: 'name',
+      };
+      const response = await axios.post("http://127.0.0.1:8000/api/search/", data);
 
       var rawReturnedGameList = response.data;
       for (var i=0; i < rawReturnedGameList.length; i++) {

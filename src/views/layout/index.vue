@@ -46,7 +46,7 @@
           <el-input
             class="el-input"
             prefix-icon="el-icon-search"
-            placeholder="Search Everything"
+            placeholder="Search game by name"
             style="width: 18%; margin-left: 1%"
             type="input"
             v-model="input_value"
@@ -74,6 +74,7 @@ export default {
     return {
       isActive: false,
       input_value: "",
+
     };
   },
   methods: {
