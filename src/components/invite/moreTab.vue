@@ -1,6 +1,6 @@
 <template>
   <div class="inviteMoreInfo">
-    <div class="content1" v-for="item in contentInfo" :key="item.id">
+    <div class="content1" v-for="(item, index) in contentInfo" :key="item.id">
       <div class="invitePic1">
         <img :src="item.imgUrl" />
       </div>
@@ -17,13 +17,18 @@
       <div class="inviteDetail">
         <div class="point"></div>
         <span>{{ item.distance }}</span>
-        <el-button>Check</el-button>
+        <el-button @click="getCheckDetail(index)">Check</el-button>
       </div>
     </div>
+    <el-dialog :visible.sync="dialogVisible" width="20%" title="inviteDetail:">
+      <CheckTab :checkId="checkId"></CheckTab>
+    </el-dialog>
   </div>
 </template>
 <script>
+import CheckTab from "../../components/checkTab.vue";
 export default {
+  components: { CheckTab },
   data() {
     return {
       contentInfo: [
@@ -88,7 +93,15 @@ export default {
           distance: "0.2Km",
         },
       ],
+      dialogVisible: false,
+      checkId: null,
     };
+  },
+  methods: {
+    getCheckDetail(index) {
+      this.checkId = index;
+      this.dialogVisible = true;
+    },
   },
 };
 </script>
