@@ -2,15 +2,6 @@
   <div class="recommend">
     <div class="recommendHeader">
       <div class="recommendName">Recommended Games</div>
-      <el-select v-model="value" placeholder="请选择">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        >
-        </el-option>
-      </el-select>
     </div>
     <div class="recommendContent">
       <div class="content1">
@@ -113,11 +104,6 @@
         </div>
       </div>
     </div>
-    <div class="recommendFooter">
-      <div>
-        <a>More</a>
-      </div>
-    </div>
 
     <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
       <GameDetail></GameDetail>
@@ -134,29 +120,6 @@ export default {
 
   data() {
     return {
-      options: [
-        {
-          value: "选项1",
-          label: "Diatance1",
-        },
-        {
-          value: "选项2",
-          label: "Diatance2",
-        },
-        {
-          value: "选项3",
-          label: "Diatance3",
-        },
-        {
-          value: "选项4",
-          label: "Diatance4",
-        },
-        {
-          value: "选项5",
-          label: "Diatance5",
-        },
-      ],
-      value: "Diatance",
       dialogVisible: false,
     };
   },
@@ -206,10 +169,6 @@ export default {
   border-radius: 20px;
   box-shadow: 0px 2px 2px 3px#e6e6e6;
 }
-/* 当不止一行时这么设置 */
-/* .content4:nth-of-type(4n + 0) {
-  margin-right: 0;
-} */
 .recommendPic1 {
   height: 40%;
   background: url("../../img/invite1.png") no-repeat;

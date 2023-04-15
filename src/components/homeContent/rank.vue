@@ -124,11 +124,6 @@
         </section>
       </div>
     </div>
-    <div class="rankFooter">
-      <div>
-        <a>More</a>
-      </div>
-    </div>
 
     <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
       <GameDetail></GameDetail>
@@ -357,12 +352,6 @@ h4 {
   /*text-align: center;*/
   border-radius: 10px;
   margin-left: 1%;
-}
-
-.rankFooter {
-  width: 98%;
-  margin-left: 1%;
-  overflow: hidden;
 }
 .rankFooter div {
   float: right;
