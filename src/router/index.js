@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Router from 'vue-router'
 import Login from '../views/Login/index.vue'
-import gameSearchResults from "@/views/gameSearchResults/index.vue";
 
 Vue.use(Router)
 
@@ -22,6 +21,11 @@ const routes = [
             {
                 path:'/collection',
                 component: () => import('../views/collection'),
+            },
+            {
+                path:'/gameSearchResults/:input_value',
+                name: 'gameSearchResults',
+                component: () => import('../views/gameSearchResults'),
             },
             {
                 path:'/friends',
@@ -54,11 +58,6 @@ const routes = [
         path:'/Login',
         name:'Login',
         component:Login
-    },
-    {
-        path:'/gameSearchResults/:input_value',
-        name: 'gameSearchResults',
-        component: gameSearchResults,
     },
 ]
 
