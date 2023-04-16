@@ -273,6 +273,7 @@ export default {
       var weight = gameJsonObj["weight"];
       var brass = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight;
       this.gameData = {
+        id: gameJsonObj["id"],
         name: gameJsonObj["names"],
         image_url: gameJsonObj["image_url"],
         score: gameJsonObj["avg_rating"].toFixed(1),

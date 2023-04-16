@@ -12,14 +12,7 @@ module.exports = defineConfig({
     open:true,
     host:'localhost'
   },
-  // configureWebpack: {
-  //   resolve: {
-  //     alias: {
-  //       crypto: require.resolve('crypto-browserify'),
-  //       stream: require.resolve('stream-browserify'),
-  //     },
-  //   }
-  // }
+
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
@@ -38,6 +31,18 @@ module.exports = defineConfig({
 
       },
     },
+  },
+  chainWebpack: config => {
+      // update css-loader settings
+      const oneOfsMap = config.module.rule('css').oneOfs.store;
+      oneOfsMap.forEach(item => {
+        item.use('css-loader')
+            .loader('css-loader')
+            .tap(options => {
+              return {
+              ...options,
+              esModule: false,  };
+            });
+      });
   }
-
 })

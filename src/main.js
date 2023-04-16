@@ -15,6 +15,16 @@ import router from './router'
 import * as echarts from 'echarts';
 Vue.prototype.$echarts = echarts
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
+import { faTimes as faSolidTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faSolidHeart, faRegularHeart,  faSolidTimes);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 // 关闭生产提示
 Vue.config.productionTip = false
 // 挂载到原型，可以全局使用
