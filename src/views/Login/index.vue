@@ -38,7 +38,9 @@
             Or continue with
           </div>
           <el-form-item style="margin-left: 50px">
-            <el-button type="primary" style="width: 300px">Visitor</el-button>
+            <router-link :to="{ path: 'homeContent' }">
+              <el-button type="primary" style="width: 300px">Visitor</el-button>
+            </router-link>
           </el-form-item>
         </el-form>
       </el-card>
