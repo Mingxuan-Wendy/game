@@ -1,23 +1,7 @@
 <template>
   <div class="sendInviteCount">
     <div class="sendInviteInfo">You totally sent 4 invites</div>
-    <div class="sendInviteSelect">
-      <el-select v-model="value" placeholder="请选择">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        >
-        </el-option>
-      </el-select>
-      <div class="icons">
-        <i class="el-icon-delete-solid">Move</i>
-        <i class="el-icon-delete-solid">Delete</i>
-        <i class="el-icon-s-order"></i>
-        <i class="el-icon-menu"></i>
-      </div>
-    </div>
+
     <div class="sendInviteContent">
       <div class="content1">
         <div class="invitePic1"></div>
@@ -118,29 +102,6 @@ export default {
   components: { MoreTab, CheckTab },
   data() {
     return {
-      options: [
-        {
-          value: "选项1",
-          label: "Date uploaded1",
-        },
-        {
-          value: "选项2",
-          label: "Date uploaded2",
-        },
-        {
-          value: "选项3",
-          label: "Date uploaded3",
-        },
-        {
-          value: "选项4",
-          label: "Date uploaded4",
-        },
-        {
-          value: "选项5",
-          label: "Date uploaded5",
-        },
-      ],
-      value: "Date uploaded",
       imgList: [
         {
           id: "001",

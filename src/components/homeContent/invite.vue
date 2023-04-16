@@ -2,15 +2,15 @@
   <div class="invite">
     <div class="inviteHeader">
       <div class="inviteName">New Invite</div>
-      <el-select v-model="value" placeholder="请选择">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        >
-        </el-option>
-      </el-select>
+<!--      <el-select v-model="value" placeholder="请选择">-->
+<!--        <el-option-->
+<!--          v-for="item in options"-->
+<!--          :key="item.value"-->
+<!--          :label="item.label"-->
+<!--          :value="item.value"-->
+<!--        >-->
+<!--        </el-option>-->
+<!--      </el-select>-->
     </div>
     <div class="inviteContent">
       <div class="content1">
@@ -105,29 +105,6 @@ export default {
   components: { CheckTab },
   data() {
     return {
-      options: [
-        {
-          value: "选项1",
-          label: "Diatance1",
-        },
-        {
-          value: "选项2",
-          label: "Diatance2",
-        },
-        {
-          value: "选项3",
-          label: "Diatance3",
-        },
-        {
-          value: "选项4",
-          label: "Diatance4",
-        },
-        {
-          value: "选项5",
-          label: "Diatance5",
-        },
-      ],
-      value: "Diatance",
       dialogVisible: false,
       checkId: null,
     };

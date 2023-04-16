@@ -51,10 +51,8 @@
       <p>You totally added {{ totalCollectedGames }} games</p>
 
       <div class="operator">
-        <i class="el-icon-edit"  style="vertical-align: middle" @click="showSelect = !showSelect">
-        </i>
-        <i class="el-icon-delete" style="vertical-align: middle" @click="onDelete">
-        </i>
+        <i class="el-icon-edit"  style="vertical-align: middle" @click="showSelect = !showSelect">Select</i>
+        <i class="el-icon-delete" style="vertical-align: middle" @click="onDelete">Delete</i>
       </div>
 
       <div class="collectionContent">
@@ -86,14 +84,14 @@
               </div>
 
               <div class="detail">
-                <el-button @click="clickDetails">Details</el-button>
+                <el-button @click="clickDetails(item['id'])" >Details</el-button>
               </div>
             </div>
         </ul>
       </div>
     </div>
     <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
-      <GameDetail></GameDetail>
+      <GameDetail :game-data="gameData"></GameDetail>
     </el-dialog>
   </div>
 </template>
@@ -105,6 +103,7 @@ let processedGameList;
 let total_size = 0;
 let collections;
 let user_id = 1;
+// let passToGameDetail = {};
 export default {
   components: {
     GameDetail,
@@ -189,6 +188,7 @@ export default {
       isSizeSelected: false,
       isAgeSelected: false,
       dialogVisible: false,
+      gameData: {},
     };
   },
 
@@ -261,7 +261,29 @@ export default {
       this.$forceUpdate();
     },
 
-    clickDetails() {
+    async clickDetails(id) {
+      const response = await axios.get("http://127.0.0.1:8000/api/games/" + id);
+      var gameJsonObj = response.data;
+      // brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+      var min_player = gameJsonObj["min_players"];
+      var max_player = gameJsonObj["max_players"];
+      var min_time = gameJsonObj["min_time"];
+      var max_time = gameJsonObj["max_time"];
+      var age = gameJsonObj["age"];
+      var weight = gameJsonObj["weight"];
+      var brass = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight;
+      this.gameData = {
+        name: gameJsonObj["names"],
+        image_url: gameJsonObj["image_url"],
+        score: gameJsonObj["avg_rating"].toFixed(1),
+        category: gameJsonObj["category"],
+        brass: brass,
+        year: gameJsonObj["year"],
+        num_votes: gameJsonObj["num_votes"],
+        bgg_url: gameJsonObj["bgg_url"],
+        owned: gameJsonObj["owned"],
+        designer: gameJsonObj["designer"]
+      }
       this.dialogVisible = true;
     }
   },

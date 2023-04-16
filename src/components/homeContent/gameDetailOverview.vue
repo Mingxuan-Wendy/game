@@ -1,21 +1,19 @@
 <template>
   <div class="overviewInfo">
     <div class="description">
-      <h4>Description</h4>
-      Brass:11111111111111111111111111111111111111111111111
-      1111111111111111111111111111111111111111111111111111111
-      1111111111111111111111111111111111111111111111111111
-      111111111111111111111111111111111111111111111111111
-      1111111111111111111111111111111111111111111111111
-      1111111111111111111111111 11111111111111111111111 11111111111111111111
-      11111111111111111 11111111111111111111111111111111111111111
+      <h4>{{ this.gameDetailData.name }}</h4>
+      <p>Year: {{ this.gameDetailData.year }}</p>
+      <p>Category: {{ this.gameDetailData.category }}</p>
+      <p>Info: {{ this.gameDetailData.brass }}</p>
     </div>
     <div class="link">
-      <router-link
-        to="/FAQ"
+      <a
+        :href="this.gameDetailData.bgg_url"
         class="el-icon-link"
         style="color: #005bca; text-decoration: none"
-        >Brass:Birmingham - Official Roxley page</router-link
+        target="_blank"
+        rel="noopener noreferrer"
+        >Link to BoardGameGeek</a
       >
     </div>
     <div class="gameDetailFooter">
@@ -29,36 +27,17 @@
         <div class="detailInfo">
           <div class="leftDetail">
             <div>
-              <span>Own:</span>
-              <span>51K</span>
+              <span>Owned:<i class="el-icon-user-solid"></i></span>
+              <span>{{ this.gameDetailData.owned }}</span>
             </div>
             <div>
-              <span>Own:</span>
-              <span>51K</span>
-            </div>
-            <div>
-              <span>Own:<i class="el-icon-user-solid"></i></span>
-              <span>51K</span>
-            </div>
-            <div style="margin-bottom: 0px">
-              <span>See All Status</span>
-            </div>
-            <div style="margin-bottom: 0px">
-              <span>BGG Item ID:224517</span>
+              <span>Designer: {{ this.gameDetailData.designer }}</span>
             </div>
           </div>
           <div class="rightDetail">
             <div>
-              <span>Want In Trade:<i class="el-icon-user-solid"></i></span>
-              <span>1,657</span>
-            </div>
-            <div>
-              <span>Want In Trade:<i class="el-icon-user-solid"></i></span>
-              <span>1,657</span>
-            </div>
-            <div>
-              <span>Want In Trade:</span>
-              <span>1,657</span>
+              <span>Number of votes:<i class="el-icon-user-solid"></i></span>
+              <span>{{ this.gameDetailData.num_votes }}</span>
             </div>
           </div>
         </div>
@@ -66,6 +45,20 @@
     </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  props: {
+    gameDetailData: {
+      type: Object,
+      required: true,
+    }
+  },
+};
+</script>
+
+
 <style scoped>
 .link {
   margin-top: 20px;
@@ -86,15 +79,16 @@
 }
 .detailInfo {
   overflow: hidden;
+  width: 100%;
 }
 .detailInfo .leftDetail {
   float: left;
-  width: 30%;
+  width: 45%;
 }
 .detailInfo .rightDetail {
-  float: left;
-  width: 40%;
-  margin-left: 15%;
+  float: right;
+  width: 45%;
+  margin-left: 10%;
 }
 .leftDetail div {
   margin-bottom: 20px;

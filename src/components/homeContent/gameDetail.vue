@@ -4,7 +4,8 @@
       <div class="picItem">
         <img
           class="carousel"
-          src="../../img/banner1.jpg"
+          v-if="gameData.image_url"
+          :src="gameData.image_url"
           width="100%"
           height="400px"
         />
@@ -12,14 +13,12 @@
           <div class="score">
             <div class="scoreDetail">
               <i class="el-icon-star-on"></i>
-              8.6
+              {{ gameData.score }}
             </div>
-            <div class="moba">MOBA</div>
-            <div class="esport">ESport</div>
+            <div class="moba">{{ gameData.category }}</div>
           </div>
           <div class="brass">
-            <h4>Brass:Birmingham(2018)</h4>
-            <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+            <p>{{ gameData.brass }}</p>
           </div>
         </div>
       </div>
@@ -27,7 +26,7 @@
     <div class="gameDetailContent">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="Overview" name="first">
-          <GameDetailOverview></GameDetailOverview>
+          <GameDetailOverview :game-detail-data="gameDetailData"></GameDetailOverview>
         </el-tab-pane>
         <el-tab-pane label="Ratings" name="second">
           <GameDetailRating></GameDetailRating>
@@ -36,11 +35,21 @@
     </div>
   </div>
 </template>
+
 <script>
 import GameDetailOverview from "./gameDetailOverview.vue";
 import GameDetailRating from "./gameDetailRating.vue";
 
 export default {
+  created() {
+    console.log(this.gameData);
+  },
+  props: {
+    gameData: {
+      type: Object,
+      required: true,
+    },
+  },
   components: {
     GameDetailOverview,
     GameDetailRating,
@@ -48,11 +57,22 @@ export default {
   data() {
     return {
       activeName: "first",
+      gameDetailData: {},
     };
   },
   methods: {
     handleClick(tab, event) {
       console.log(tab, event);
+      this.gameDetailData = {
+        name: this.gameData.name,
+        category: this.gameData.category,
+        brass: this.gameData.brass,
+        year: this.gameData.year,
+        num_votes: this.gameData.num_votes,
+        bgg_url: this.gameData.bgg_url,
+        owned: this.gameData.owned,
+        designer: this.gameData.designer
+      };
     },
   },
 };
@@ -75,16 +95,18 @@ export default {
   align-items: left;
 }
 .score {
-  width: 30%;
-  height: 20px;
-  margin-top: 20px;
+  width: 40%;
+  height: 16px;
+  margin-bottom: 0px;
   overflow: hidden;
+  display: flex;
 }
 .score div {
   float: left;
   margin-left: 20px;
 }
 .scoreDetail {
+  width: 15%;
   padding: 0px 5px;
   border-radius: 10px;
   background-color: #ff754c;
@@ -92,8 +114,8 @@ export default {
   color: #fff;
   text-align: center;
 }
-.moba,
-.esport {
+.moba {
+  width: 90%;
   padding: 0px 5px;
   font-size: 12px;
   color: #fff;
@@ -102,12 +124,12 @@ export default {
   background-color: rgba(255, 255, 255, 0.5);
 }
 .brass {
-  width: 30%;
-  margin-left: 1%;
+  width: 35%;
+  margin-left: 2.5%;
   color: #fff;
   text-align: left;
-  margin-top: 20px;
-  padding-bottom: 50px;
+  margin-top: 10px;
+  padding-bottom: 20px;
 }
 .brass h4 {
   margin-top: 0px;
