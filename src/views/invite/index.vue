@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SendNewInvite></SendNewInvite>
+<!--    <SendNewInvite></SendNewInvite>-->
     <SendInviteCounts></SendInviteCounts>
   </div>
 </template>

@@ -3,16 +3,16 @@
     <h4>Your Friends</h4>
     <div class="friendsInfo">
       <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="Andy1" name="first">
+        <el-tab-pane label="Andy" name="first">
           <FriendDetailInfo :friendIndex="friendIndex"></FriendDetailInfo>
         </el-tab-pane>
-        <el-tab-pane label="Andy2" name="second">
+        <el-tab-pane label="Julie" name="second">
           <FriendDetailInfo :friendIndex="friendIndex"></FriendDetailInfo>
         </el-tab-pane>
-        <el-tab-pane label="Andy3" name="third">
+        <el-tab-pane label="Patrick" name="third">
           <FriendDetailInfo :friendIndex="friendIndex"></FriendDetailInfo>
         </el-tab-pane>
-        <el-tab-pane label="Andy4" name="fourth">
+        <el-tab-pane label="Monica" name="fourth">
           <FriendDetailInfo :friendIndex="friendIndex"></FriendDetailInfo>
         </el-tab-pane>
       </el-tabs>
@@ -34,6 +34,7 @@ export default {
   methods: {
     handleClick(event) {
       this.friendIndex = event.index;
+      console.log(this.friendIndex);
     },
   },
 };

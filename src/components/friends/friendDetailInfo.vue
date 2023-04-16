@@ -1,21 +1,11 @@
 <template>
   <div class="friendsDetailBox">
     <div class="about">About</div>
-    <p>{{ information[friendIndex].content }}</p>
+    <p style="margin-bottom: 30px">{{ information[friendIndex].content }}</p>
     <div class="connection">Connection</div>
-    <i class="el-icon-phone">：</i>
-    <el-input
-      v-model="information[friendIndex].phone"
-      placeholder="please input phone"
-      style="width: 180px; margin-bottom: 20px"
-    ></el-input>
+    <i class="el-icon-phone" style="width: 180px; margin-bottom: 20px">：{{ information[friendIndex].phone }}</i>
     <br />
-    <i class="el-icon-message">：</i>
-    <el-input
-      v-model="information[friendIndex].email"
-      placeholder="please input email"
-      style="width: 180px"
-    ></el-input>
+    <i class="el-icon-message" style="width: 180px; margin-bottom: 20px">：{{ information[friendIndex].email }}</i>
     <div class="collection">Collections</div>
     <div class="collectionContent">
       <div class="box">
@@ -57,27 +47,27 @@ export default {
       information: [
         {
           content:
-            "Hello everyone,111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
-          phone: "12312312313",
-          email: "111111111@qq.com",
+            "Hello everyone. This is Andy, a dedicated semaphore student with a passion for communication. I spend much of my time learning and practicing the art of semaphore signaling, honing my skills to become a master of the craft. And I often play board games with my friends.",
+          phone: "+44 7913408763",
+          email: "Andy@gmail.com",
         },
         {
           content:
-            "Hello everyone,222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222",
-          phone: "78978978978",
-          email: "222222222@qq.com",
+            "Hello everyone. My name is Julie, and I'm a music enthusiast with a passion for games that test my knowledge of all things musical. I love to play games that challenge me to identify songs based on their melodies, lyrics, or even just a few notes. ",
+          phone: "+44 7890287654",
+          email: "Julie@gmail.com",
         },
         {
           content:
-            "Hello everyone,3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333",
-          phone: "24624624624",
-          email: "333333333@qq.com",
+            "Hello everyone. This is Patrick, an avid chess player with a passion for strategy games. I spend much of my free time honing my skills and studying chess tactics and techniques. And I love to play against other chess enthusiasts and enjoys the challenge of outmaneuvering my opponents on the board.",
+          phone: "+44 7807265486",
+          email: "Patrick@gmail.com",
         },
         {
           content:
-            "Hello everyone,444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
-          phone: "12312312313",
-          email: "444444444@qq.com",
+            "Hello everyone. My name is Monica, a social gamer who loves to play games with others rather than playing alone. I enjoy a variety of games, including board games, card games, and video games, and I always eager to learn new ones. For me, playing games is a way to connect with others and have fun together.",
+          phone: "+44 7806990781",
+          email: "Monica@gmail.com",
         },
       ],
     };

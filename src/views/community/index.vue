@@ -10,7 +10,7 @@
             contenteditable="true"
             id="replyInput"
             spellcheck="false"
-            placeholder="输入评论..."
+            placeholder="Please input your comments..."
             class="reply-input"
             @focus="showReplyBtn"
             @input="onDivInput($event)"
@@ -22,7 +22,7 @@
             size="medium"
             @click="sendComment"
             type="primary"
-            >发表评论</el-button
+            >Submit</el-button
           >
         </div>
       </div>
@@ -72,7 +72,7 @@
             </div>
             <div class="talk-box">
               <p>
-                <span>回复 {{ reply.to }}:</span>
+                <span>reply {{ reply.to }}:</span>
                 <span class="reply">{{ reply.comment }}</span>
               </p>
             </div>
@@ -86,7 +86,7 @@
               tabindex="0"
               contenteditable="true"
               spellcheck="false"
-              placeholder="输入评论..."
+              placeholder="input comments..."
               @input="onDivInput($event)"
               class="reply-input reply-comment-input"
             ></div>
@@ -97,7 +97,7 @@
               size="medium"
               @click="sendCommentReply(i)"
               type="primary"
-              >发表评论</el-button
+              >Submit</el-button
             >
           </div>
         </div>
@@ -108,25 +108,25 @@
 
 <script>
 const clickoutside = {
-  // 初始化指令
+  // initialize instruction
   bind(el, binding) {
     function documentHandler(e) {
-      // 这里判断点击的元素是否是本身，是本身，则返回
+      // Here judged whether the clicked element is itself, and it is itself, then return
       if (el.contains(e.target)) {
         return false;
       }
-      // 判断指令中是否绑定了函数
+      // Determine whether a function is bound in the instruction.
       if (binding.expression) {
-        // 如果绑定了函数 则调用那个函数，此处binding.value就是handleClose方法
+        // If a function is bound, call that function, where binding.value is the handleClose method.
         binding.value(e);
       }
     }
-    // 给当前元素绑定个私有变量，方便在unbind中可以解除事件监听
+    // Bind a private variable to the current element, so that the event listener can be released in unbind
     el.vueClickOutside = documentHandler;
     document.addEventListener("click", documentHandler);
   },
   unbind(el) {
-    // 解除事件监听
+    // Cancel event listener
     document.removeEventListener("click", el.vueClickOutside);
     delete el.vueClickOutside;
   },
@@ -150,8 +150,8 @@ export default {
           id: 19870621,
           headImg:
             "https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg",
-          comment: "game1真好玩！",
-          time: "2023年2月16日 18:43",
+          comment: "The chess game is so fun!",
+          time: "April 9, 2023, 18:43",
           commentNum: 2,
           like: 15,
           inputShow: false,
@@ -163,8 +163,8 @@ export default {
                 "https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg",
               to: "Lana Del Rey",
               toId: 19870621,
-              comment: "我很喜欢game2！！",
-              time: "2019年9月16日 18:43",
+              comment: "Agree, I love the game Bughouse Chess!!!",
+              time: "April 9, 2023, 18:43",
               commentNum: 1,
               like: 15,
               inputShow: false,
@@ -176,8 +176,8 @@ export default {
                 "https://ae01.alicdn.com/kf/Hf6c0b4a7428b4edf866a9fbab75568e6U.jpg",
               to: "Lana Del Rey",
               toId: 19870621,
-              comment: "别忘记一起上分啊！",
-              time: "2019年9月16日 18:43",
+              comment: "What's the game you're playing?",
+              time: "April 9, 2023, 18:45",
               commentNum: 0,
               like: 5,
               inputShow: false,
@@ -189,8 +189,8 @@ export default {
           id: 19891221,
           headImg:
             "https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg",
-          comment: "我已经是王者了！",
-          time: "2019年9月16日 18:43",
+          comment: "Hey, let's play the game Terra Mystica together!",
+          time: "April 9, 2023, 19:30",
           commentNum: 1,
           like: 5,
           inputShow: false,
@@ -202,8 +202,8 @@ export default {
                 "https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg",
               to: "Taylor Swift",
               toId: 19891221,
-              comment: "大佬求带！",
-              time: "2019年9月16日 18:43",
+              comment: "I'm in.",
+              time: "April 9, 2023, 19:36",
               commentNum: 25,
               like: 5,
               inputShow: false,
@@ -215,8 +215,8 @@ export default {
           id: 20190830,
           headImg:
             "https://ae01.alicdn.com/kf/Hdd856ae4c81545d2b51fa0c209f7aa28Z.jpg",
-          comment: "game3真好玩！",
-          time: "2019年9月16日 18:43",
+          comment: "Does anyone have a strategy for the game Through the Ages: A New Story of Civilization?",
+          time: "April 10, 2023, 09:30",
           commentNum: 0,
           like: 5,
           inputShow: false,
@@ -345,7 +345,7 @@ export default {
 }
 .gameDirectory {
   float: left;
-  width: 20%;
+  width: 1px;
   height: 1000px;
   background: #e6e6e6;
 }

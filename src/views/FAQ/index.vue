@@ -82,4 +82,7 @@ export default {
   border-radius: 20px;
   box-shadow: 0px 2px 2px 3px#e6e6e6;
 }
+.question, .answer {
+  margin-left: 1%;
+}
 </style>

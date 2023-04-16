@@ -1,7 +1,7 @@
 <template>
   <div class="friendsBox">
     <LeftSideBar></LeftSideBar>
-    <FriendsContent></FriendsContent>
+    <div class="friendsContent"><FriendsContent></FriendsContent></div>
   </div>
 </template>
 <script>
@@ -18,5 +18,8 @@ export default {
 .friendsBox {
   display: flex;
   justify-content: flex-start;
+}
+.friendsContent {
+  margin-left: 3%;
 }
 </style>

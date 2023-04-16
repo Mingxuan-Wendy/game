@@ -27,13 +27,13 @@
                 </div>
 
                 <div class="detail">
-                  <el-button @click="clickDetails">Details</el-button>
+                  <el-button @click="clickDetails(item['id'])">Details</el-button>
                 </div>
               </div>
           </ul>
         </div>
         <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
-          <GameDetail></GameDetail>
+          <GameDetail :game-data="gameData"></GameDetail>
         </el-dialog>
     </div>
   </div>
@@ -59,7 +59,31 @@ export default {
   },
 
   methods: {
-    clickDetails() {
+    async clickDetails(id) {
+      const response = await axios.get("http://127.0.0.1:8000/api/games/" + id);
+      var gameJsonObj = response.data;
+      // brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+      var min_player = gameJsonObj["min_players"];
+      var max_player = gameJsonObj["max_players"];
+      var min_time = gameJsonObj["min_time"];
+      var max_time = gameJsonObj["max_time"];
+      var age = gameJsonObj["age"];
+      var weight = gameJsonObj["weight"].toFixed(1);
+      var brass = min_player + "-" + max_player + " players, " + min_time + "-" + max_time + " mins, Age:" + age + ", weight:" + weight + "/5";
+      this.gameData = {
+        id: gameJsonObj["id"],
+        name: gameJsonObj["names"],
+        image_url: gameJsonObj["image_url"],
+        score: gameJsonObj["avg_rating"].toFixed(1),
+        category: gameJsonObj["category"],
+        brass: brass,
+        year: gameJsonObj["year"],
+        num_votes: gameJsonObj["num_votes"],
+        bgg_url: gameJsonObj["bgg_url"],
+        owned: gameJsonObj["owned"],
+        designer: gameJsonObj["designer"]
+      }
+
       this.dialogVisible = true;
     },
     async fetchGameData() {
@@ -96,8 +120,8 @@ export default {
             var min_time = rawReturnedGame["min_time"];
             var max_time = rawReturnedGame["max_time"];
             var age = rawReturnedGame["age"];
-            var weight = rawReturnedGame["weight"];
-            jsonObj["brass"] = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight;
+            var weight = rawReturnedGame["weight"].toFixed(1);
+            jsonObj["brass"] = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight + "/5";
 
             console.log(jsonObj);
             processedGameList.push(jsonObj);
@@ -116,6 +140,7 @@ export default {
     return {
       searchedGameList: processedGameList,
       dialogVisible: false,
+      gameData: {},
     };
   },
 }

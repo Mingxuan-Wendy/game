@@ -39,7 +39,7 @@
           </div>
           <el-form-item style="margin-left: 50px">
             <router-link :to="{ path: 'homeContent' }">
-              <el-button type="primary" style="width: 300px">Login as default user</el-button>
+              <el-button type="primary" style="width: 300px">Default User</el-button>
             </router-link>
           </el-form-item>
         </el-form>

@@ -15,8 +15,8 @@
                 <div class="esport">ESport</div>
               </div>
               <div class="brass">
-                <h4>Brass:Birmingham(2018)</h4>
-                <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+                <h4>{{ item.name }}</h4>
+                <p>{{ item.info }}</p>
               </div>
               <div class="detail">
                 <el-button @click="getDetail(item.id)">Details</el-button>
@@ -44,26 +44,34 @@ export default {
         {
           id: 1,
           imgUrl: "https://cf.geekdo-images.com/original/img/lDN358RgcYvQfYYN6Oy2TXpifyM=/0x0/pic2437871.jpg",
-          socre: 8.9,
-          moba: "MOBA1",
+          socre: 9.0,
+          moba: "MOBA",
+          name: "Gloomhaven",
+          info: "1-4 players, 60-120 mins, Age:12, weight:3.8/5",
         },
         {
           id: 2,
           imgUrl: "https://cf.geekdo-images.com/original/img/P_SwsOtPLqgk2ScCgI2YrI9Rg6I=/0x0/pic2452831.png",
-          socre: 8.6,
-          moba: "MOBA2",
+          socre: 8.7,
+          moba: "MOBA",
+          name: "Pandemic Legacy: Season 1",
+          info: "2-4 players, 60-60 mins, Age:13, weight:2.8/5",
         },
         {
           id: 3,
           imgUrl: "https://cf.geekdo-images.com/original/img/1d2h-kr4r_9xsss2Br6iMvjR9q0=/0x0/pic2663291.jpg",
           socre: 8.6,
-          moba: "MOBA3",
+          moba: "MOBA",
+          name: "Through the Ages: A New Story of Civilization",
+          info: "2-4 players, 180-240 mins, Age:14, weight:4.4/5",
         },
         {
           id: 4,
           imgUrl: "https://cf.geekdo-images.com/original/img/o8z_levBVArPUKI7ZrIysZEs1A0=/0x0/pic3536616.jpg",
-          socre: 8.3,
-          moba: "MOBA4",
+          socre: 8.4,
+          moba: "MOBA",
+          name: "Terraforming Mars",
+          info: "1-5 players, 120-120 mins, Age:12, weight:3.2/5",
         },
       ],
       dialogVisible: false,
@@ -80,8 +88,8 @@ export default {
       var min_time = gameJsonObj["min_time"];
       var max_time = gameJsonObj["max_time"];
       var age = gameJsonObj["age"];
-      var weight = gameJsonObj["weight"];
-      var brass = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight;
+      var weight = gameJsonObj["weight"].toFixed(1);
+      var brass = min_player + "-" + max_player + " players, " + min_time + "-" + max_time + " mins, Age:" + age + ", weight:" + weight + "/5";
       this.gameData = {
         id: gameJsonObj["id"],
         name: gameJsonObj["names"],

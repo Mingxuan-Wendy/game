@@ -138,8 +138,8 @@ export default {
         var min_time = rawCollectedGameList[i]["min_time"];
         var max_time = rawCollectedGameList[i]["max_time"];
         var age = rawCollectedGameList[i]["age"];
-        var weight = rawCollectedGameList[i]["weight"];
-        jsonObj["brass"] = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight;
+        var weight = rawCollectedGameList[i]["weight"].toFixed(1);
+        jsonObj["brass"] = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight + "/5";
 
         console.log(jsonObj);
         processedGameList.push(jsonObj);
@@ -270,8 +270,8 @@ export default {
       var min_time = gameJsonObj["min_time"];
       var max_time = gameJsonObj["max_time"];
       var age = gameJsonObj["age"];
-      var weight = gameJsonObj["weight"];
-      var brass = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight;
+      var weight = gameJsonObj["weight"].toFixed(1);
+      var brass = min_player + "-" + max_player + " players, " + min_time + "-" + max_time + " mins, Age:" + age + ", weight:" + weight + "/5";
       this.gameData = {
         id: gameJsonObj["id"],
         name: gameJsonObj["names"],

@@ -1,6 +1,6 @@
 <template>
   <div class="sendInviteCount">
-    <div class="sendInviteInfo">You totally sent 4 invites</div>
+    <div class="sendInviteInfo">Your totally sent invites</div>
 
     <div class="sendInviteContent">
       <div class="content1">

@@ -1,24 +1,5 @@
 <template>
   <div class="main_container">
-    <div class="header">
-      <div class="title">Account Settings</div>
-      <div class="btns">
-        <el-button type="success">Your Profile</el-button>
-        <el-button type="primary">Password</el-button>
-        <el-button type="primary">Data Export</el-button>
-      </div>
-      <div class="avatar">
-        <p class="avatar_title">Your Avatar</p>
-        <div class="m-avatar">
-          <div class="l-avatar"></div>
-          <div class="r-avatar">
-            <el-button type="success">Upload New</el-button>
-            <el-button type="primary">Delete Avatar</el-button>
-            <p class="r-avatar-p">asdadas adsasd wefas fasfd a</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="footer">
       <!-- <el-row> -->
@@ -32,43 +13,43 @@
         <el-row>
           <el-col :span="8">
             <el-form-item label="Your FullName" prop="fullName">
-              <el-input v-model="form.username"></el-input>
+              <el-input v-model="form.username" :disabled="isDisabled"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="Display Name" prop="displayName">
-              <el-input v-model="form.displayName"></el-input>
+              <el-input v-model="form.displayName" :disabled="isDisabled"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="8">
             <el-form-item label="Age" prop="age">
-              <el-input v-model="form.age"></el-input>
+              <el-input v-model="form.age" :disabled="isDisabled"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="Location" prop="location">
-              <el-input v-model="form.location"></el-input>
+              <el-input v-model="form.location" :disabled="isDisabled"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="8">
             <el-form-item label="Phone" prop="phone">
-              <el-input v-model="form.phone"></el-input>
+              <el-input v-model="form.phone" :disabled="isDisabled"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="Email" prop="email">
-              <el-input v-model="form.email"></el-input>
+              <el-input v-model="form.email" :disabled="isDisabled"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="16">
             <el-form-item label="About you" prop="about">
-              <el-input type="textarea" v-model="form.about"></el-input>
+              <el-input type="textarea" v-model="form.about" :disabled="isDisabled"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -81,15 +62,16 @@
 export default {
   data() {
     return {
+      isDisabled: true,
       labelPosition: "right",
       form: {
-        username: "",
-        age: "",
-        phone: "",
-        displayName: "",
-        location: "",
-        email: "",
-        about:''
+        username: "Patrick Cardiff",
+        age: "22",
+        phone: "+44 7806987674",
+        displayName: "Default User",
+        location: "Edinburgh",
+        email: "Patrick@gmail.com",
+        about: "Hello everyone. This is Patrick, an avid chess player with a passion for strategy games. I spend much of my free time honing my skills and studying chess tactics and techniques. And I love to play against other chess enthusiasts and enjoys the challenge of outmaneuvering my opponents on the board.",
       },
     };
   },

@@ -21,32 +21,31 @@
             <div class="brass">
               <p>{{ gameData.brass }}</p>
             </div>
-          </div>
 
-          <div class="operators">
-            <div class="addCollectionIcon" @click="addToCollection(gameData.id)">
-              <i class="el-icon-plus"></i>
-              <span class="tooltip-text">Collect</span>
-            </div>
+            <div class="operators">
+              <div class="addCollectionIcon" @click="addToCollection(gameData.id)">
+                <i class="el-icon-plus"></i>Collect
+<!--                <span class="tooltip-text">Collect</span>-->
+              </div>
 
-            <div class="empty-heart" v-if="!this.redHeart" @click="toggleHeart">
-              <font-awesome-icon :icon="['fas', 'heart']"/>
-              <span class="tooltip-text">Add to wishlist</span>
-            </div>
-            <div class="red-heart" v-else @click="toggleHeart">
-              <font-awesome-icon :icon="['far', 'heart']"/>
-              <span class="tooltip-text">Remove from wishlist</span>
-            </div>
+              <div class="empty-heart" v-if="!this.redHeart" @click="toggleHeart">
+                <font-awesome-icon :icon="['fas', 'heart']"/>Add to wishlist
+<!--                <span class="tooltip-text">Add to wishlist</span>-->
+              </div>
+              <div class="red-heart" v-else @click="toggleHeart">
+                <font-awesome-icon :icon="['far', 'heart']"/>Remove from wishlist
+<!--                <span class="tooltip-text">Remove from wishlist</span>-->
+              </div>
 
-            <div class="empty-times" v-if="!this.times" @click="toggleTimes">
-              <font-awesome-icon :icon="['fas', 'times']"/>
-              <span class="tooltip-text">Add to blacklist</span>
+              <div class="empty-times" v-if="!this.times" @click="toggleTimes">
+                <font-awesome-icon :icon="['fas', 'times']"/>Add to blacklist
+<!--                <span class="tooltip-text">Add to blacklist</span>-->
+              </div>
+              <div class="black-times" v-else @click="toggleTimes">
+                <font-awesome-icon :icon="['fas', 'times']"/>Remove from blacklist
+<!--                <span class="tooltip-text">Remove from blacklist</span>-->
+              </div>
             </div>
-            <div class="black-times" v-else @click="toggleTimes">
-              <font-awesome-icon :icon="['fas', 'times']"/>
-              <span class="tooltip-text">Remove from blacklist</span>
-            </div>
-
           </div>
         </div>
       </div>
@@ -126,7 +125,7 @@ export default {
       const currentCollections = userCollectionResponse.data;
       for(var i=0; i < currentCollections.length; i++) {
         if (currentCollections[i]["id"] === id) {
-          alert('This game has already been collected!');
+          alert('This game has already been collected before!');
           return;
         }
       }
@@ -157,7 +156,7 @@ export default {
   justify-content: space-between;
 }
 .info {
-  width: 50%;
+  width: 100%;
   bottom: 0px;
   display: flex;
   flex-direction: column;
@@ -165,7 +164,7 @@ export default {
   float: left;
 }
 .score {
-  width: 65%;
+  width: 90%;
   height: 16px;
   margin-bottom: 0px;
   overflow: hidden;
@@ -176,7 +175,7 @@ export default {
   margin-left: 20px;
 }
 .scoreDetail {
-  width: 15%;
+  width: 4%;
   padding: 0px 5px;
   border-radius: 10px;
   background-color: #ff754c;
@@ -185,11 +184,11 @@ export default {
   text-align: center;
 }
 .moba {
-  width: 90%;
+  width: 60%;
   padding: 0px 5px;
-  font-size: 12px;
-  background-color: #000;
-  color: #fff;
+  font-size: 13px;
+  /*background-color: #000;*/
+  color: #000;
   text-align: center;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -197,30 +196,27 @@ export default {
 }
 .brass {
   width: 65%;
-  margin-left: 4.5%;
+  margin-left: 2.5%;
   color: #fff;
   text-align: left;
-  margin-top: 10px;
-  padding-bottom: 20px;
+  /*margin-top: 10px;*/
 }
 .brass h4 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 .operators {
-  float: right;
   display: flex;
-  width: 30%;
-  margin-right: 0px;
+  width: 100%;
+  margin-left: 20px;
   margin-bottom: 2%;
-  align-items: flex-end;
 }
 .addCollectionIcon {
   position: absolute;
   cursor: pointer;
   font-size: 13px;
   height: 15%;
-  width: 1.5%;
+  width: 7%;
   color: #FF0000;
   background-color: #e6e6e6;
   border: 1px solid #D3D3D3;
@@ -229,7 +225,7 @@ export default {
 .tooltip-text {
   visibility: hidden;
   width: 120px;
-  font-size: 9px;
+  font-size: 12px;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -249,12 +245,13 @@ export default {
 }
 .empty-heart {
   cursor: pointer;
-  width: 20px;
+  width: 20%;
   height: 22%;
   color: #fff;
   stroke: #FF0000;
   stroke-width: 2px;
-  margin-left: 30px;
+  margin-left: 8%;
+  text-align: center;
 }
 .empty-heart:hover .tooltip-text {
   visibility: visible;
@@ -262,14 +259,14 @@ export default {
 }
 .empty-times {
   cursor: pointer;
-  width: 20px;
-  height: 20%;
+  width: 20%;
+  height: 15px;
   color: #e6e6e6;
   background-color: #000;
   border: 1px solid #D3D3D3;
   border-radius: 10px;
   stroke-width: 2px;
-  margin-left: 10px;
+  margin-left: 1%;
   text-align: center;
 }
 .empty-times:hover .tooltip-text {
@@ -278,11 +275,12 @@ export default {
 }
 .red-heart {
   cursor: pointer;
-  width: 18%;
+  width: 20%;
   height: 22%;
   color: #FF0000;
   stroke-width: 2px;
-  margin-left: 30px;
+  margin-left: 8%;
+  text-align: center;
 }
 .red-heart:hover .tooltip-text {
   visibility: visible;
@@ -290,14 +288,14 @@ export default {
 }
 .black-times {
   cursor: pointer;
-  width: 18%;
-  height: 20%;
+  width: 20%;
+  height: 15px;
   color: #000;
   background-color: #e6e6e6;
   border: 1px solid #D3D3D3;
   border-radius: 10px;
   stroke-width: 2px;
-  margin-left: 10px;
+  margin-left: 1%;
   text-align: center;
 }
 .black-times:hover .tooltip-text {

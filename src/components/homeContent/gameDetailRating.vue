@@ -9,44 +9,21 @@
         </div>
         <div class="comment">
           Your comment:
-          <el-input v-model="input" placeholder="请输入评论..."></el-input>
+          <el-input v-model="inputValue" placeholder="Please input your comments..."></el-input>
         </div>
       </div>
-      <el-button type="primary">Submit</el-button>
+      <el-button type="primary" @click="submitForm">Submit</el-button>
     </div>
     <div class="ratings">
-      <ul>
+      <ul v-if="submitted">
         <li>
           <el-avatar
             shape="square"
             size="small"
             src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
           ></el-avatar>
-          Andy Feb 2023
-        </li>
-        <li>
-          <el-avatar
-            shape="square"
-            size="small"
-            src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
-          ></el-avatar>
-          Andy Feb 2023
-        </li>
-        <li>
-          <el-avatar
-            shape="square"
-            size="small"
-            src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
-          ></el-avatar>
-          Andy Feb 2023
-        </li>
-        <li>
-          <el-avatar
-            shape="square"
-            size="small"
-            src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
-          ></el-avatar>
-          Andy Feb 2023
+          Default user 2023
+          <p>{{ inputValue }}</p>
         </li>
       </ul>
     </div>
@@ -57,8 +34,16 @@ export default {
   data() {
     return {
       value1: null,
-      input: "",
+      inputValue: "",
+      submitted: false,
     };
+  },
+  methods: {
+    submitForm() {
+      this.submitted = !this.submitted;
+      this.$forceUpdate();
+      window.location.reload();
+    },
   },
 };
 </script>

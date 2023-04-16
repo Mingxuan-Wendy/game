@@ -25,20 +25,22 @@
       <div class="rightBox">
         <h4 style="margin-top: 0px">Community stats</h4>
         <div class="detailInfo">
-          <div class="leftDetail">
-            <div>
-              <span>Owned:<i class="el-icon-user-solid"></i></span>
-              <span>{{ this.gameDetailData.owned }}</span>
+          <div class="firstDetailInfo">
+            <div class="leftDetail">
+              <div>
+                <span>Owned:<i class="el-icon-user-solid"></i></span>
+                <span>{{ this.gameDetailData.owned }}</span>
+              </div>
             </div>
-            <div>
-              <span>Designer: {{ this.gameDetailData.designer }}</span>
+            <div class="rightDetail">
+              <div>
+                <span>Number of votes:<i class="el-icon-user-solid"></i></span>
+                <span>{{ this.gameDetailData.num_votes }}</span>
+              </div>
             </div>
           </div>
-          <div class="rightDetail">
-            <div>
-              <span>Number of votes:<i class="el-icon-user-solid"></i></span>
-              <span>{{ this.gameDetailData.num_votes }}</span>
-            </div>
+          <div>
+            <span>Designer: {{ this.gameDetailData.designer }}</span>
           </div>
         </div>
       </div>
@@ -80,12 +82,17 @@ export default {
 .detailInfo {
   overflow: hidden;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.detailInfo .leftDetail {
+.firstDetailInfo {
+  display: flex;
+}
+.firstDetailInfo .leftDetail {
   float: left;
   width: 45%;
 }
-.detailInfo .rightDetail {
+.firstDetailInfo .rightDetail {
   float: right;
   width: 45%;
   margin-left: 10%;

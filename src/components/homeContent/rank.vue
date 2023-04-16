@@ -9,24 +9,24 @@
         <div class="rankPic">
           <img
             class="carousel"
-            :src="require('../../img/invite1.png')"
+            src="https://cf.geekdo-images.com/original/img/lDN358RgcYvQfYYN6Oy2TXpifyM=/0x0/pic2437871.jpg"
             width="100%"
           />
           <div class="info">
             <div class="score">
               <div class="scoreDetail">
                 <i class="el-icon-star-on"></i>
-                {{ 9.5 }}
+                {{ 9.0 }}
               </div>
-              <div class="moba">{{ "MOBA1" }}</div>
+              <div class="moba">{{ "MOBA" }}</div>
               <div class="esport">ESport</div>
             </div>
             <div class="brass">
-              <h4>Brass:Birmingham(2018)</h4>
-              <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+              <h4>Gloomhaven</h4>
+              <p>1-4 players, 60-120 mins, Age:12, weight:3.8/5</p>
             </div>
             <div class="detail">
-              <el-button @click="clickDetails">Details</el-button>
+              <el-button @click="clickDetails(1)">Details</el-button>
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
               <div class="sub-content">
                 <img
                   class="carousel2"
-                  :src="require('../../img/invite2.png')"
+                  src="https://cf.geekdo-images.com/original/img/P_SwsOtPLqgk2ScCgI2YrI9Rg6I=/0x0/pic2452831.png"
                   width="100%"
                 />
               </div>
@@ -47,17 +47,17 @@
                   <div class="score2">
                     <div class="scoreDetail">
                       <i class="el-icon-star-on"></i>
-                      {{ 8.5 }}
+                      {{ 8.7 }}
                     </div>
-                    <div class="moba2">{{ "MOBA1" }}</div>
+                    <div class="moba2">{{ "MOBA" }}</div>
                     <div class="esport2">ESport</div>
                   </div>
                   <div class="brass2">
-                    <h4>Brass:Birmingham(2018)</h4>
-                    <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+                    <h4>Pandemic Legacy: Season 1</h4>
+                    <p>2-4 players, 60-60 mins, Age:13, weight:2.8/5</p>
                   </div>
                   <div class="detail2">
-                    <el-button @click="clickDetails">Details</el-button>
+                    <el-button @click="clickDetails(2)">Details</el-button>
                   </div>
                 </div>
               </div>
@@ -67,7 +67,7 @@
               <div class="sub-content">
                 <img
                   class="carousel2"
-                  :src="require('../../img/invite3.png')"
+                  src="https://cf.geekdo-images.com/original/img/1d2h-kr4r_9xsss2Br6iMvjR9q0=/0x0/pic2663291.jpg"
                   width="100%"
                 />
               </div>
@@ -76,17 +76,17 @@
                   <div class="score2">
                     <div class="scoreDetail">
                       <i class="el-icon-star-on"></i>
-                      {{ 8.3 }}
+                      {{ 8.6 }}
                     </div>
-                    <div class="moba2">{{ "MOBA1" }}</div>
+                    <div class="moba2">{{ "MOBA" }}</div>
                     <div class="esport2">ESport</div>
                   </div>
                   <div class="brass2">
-                    <h4>Brass:Birmingham(2018)</h4>
-                    <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+                    <h4>Through the Ages: A New Story of Civilization</h4>
+                    <p>2-4 players, 180-240 mins, Age:14, weight:4.4/5</p>
                   </div>
                   <div class="detail2">
-                    <el-button @click="clickDetails">Details</el-button>
+                    <el-button @click="clickDetails(3)">Details</el-button>
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@
               <div class="sub-content">
                 <img
                   class="carousel2"
-                  :src="require('../../img/invite4.png')"
+                  src="https://cf.geekdo-images.com/original/img/o8z_levBVArPUKI7ZrIysZEs1A0=/0x0/pic3536616.jpg"
                   width="100%"
                 />
               </div>
@@ -105,17 +105,17 @@
                   <div class="score2">
                     <div class="scoreDetail">
                       <i class="el-icon-star-on"></i>
-                      {{ 8.1 }}
+                      {{ 8.4 }}
                     </div>
-                    <div class="moba2">{{ "MOBA1" }}</div>
+                    <div class="moba2">{{ "MOBA" }}</div>
                     <div class="esport2">ESport</div>
                   </div>
                   <div class="brass2">
-                    <h4>Brass:Birmingham(2018)</h4>
-                    <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
+                    <h4>Terraforming Mars</h4>
+                    <p>1-5 players, 120-120 mins, Age:12, weight:3.2/5</p>
                   </div>
                   <div class="detail2">
-                    <el-button @click="clickDetails">Details</el-button>
+                    <el-button @click="clickDetails(4)">Details</el-button>
                   </div>
                 </div>
               </div>
@@ -126,13 +126,14 @@
     </div>
 
     <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
-      <GameDetail></GameDetail>
+      <GameDetail :game-data="gameData"></GameDetail>
     </el-dialog>
   </div>
 </template>
 
 <script>
 import GameDetail from "@/components/homeContent/gameDetail.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -141,10 +142,35 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      gameData: {},
     }
   },
   methods: {
-    clickDetails() {
+    async clickDetails(id) {
+      const response = await axios.get("http://127.0.0.1:8000/api/games/" + id);
+      var gameJsonObj = response.data;
+      // brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+      var min_player = gameJsonObj["min_players"];
+      var max_player = gameJsonObj["max_players"];
+      var min_time = gameJsonObj["min_time"];
+      var max_time = gameJsonObj["max_time"];
+      var age = gameJsonObj["age"];
+      var weight = gameJsonObj["weight"].toFixed(1);
+      var brass = min_player + "-" + max_player + " players, " + min_time + "-" + max_time + " mins, Age:" + age + ", weight:" + weight + "/5";
+      this.gameData = {
+        id: gameJsonObj["id"],
+        name: gameJsonObj["names"],
+        image_url: gameJsonObj["image_url"],
+        score: gameJsonObj["avg_rating"].toFixed(1),
+        category: gameJsonObj["category"],
+        brass: brass,
+        year: gameJsonObj["year"],
+        num_votes: gameJsonObj["num_votes"],
+        bgg_url: gameJsonObj["bgg_url"],
+        owned: gameJsonObj["owned"],
+        designer: gameJsonObj["designer"]
+      }
+
       this.dialogVisible = true;
     },
   }
