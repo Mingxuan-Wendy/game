@@ -153,7 +153,7 @@ export default {
   },
   data() {
     return {
-      userName: "XXX",
+      userName: "Default user",
       categories: "",
       durations: "",
       sizes: "",

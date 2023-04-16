@@ -122,8 +122,21 @@ export default {
     },
     async addToCollection(id) {
       console.log(id);
-      const response = await axios.post("http://127.0.0.1:8000/api/collections/");
-
+      const userCollectionResponse = await axios.get("http://127.0.0.1:8000/api/user/1/games");
+      const currentCollections = userCollectionResponse.data;
+      for(var i=0; i < currentCollections.length; i++) {
+        if (currentCollections[i]["id"] === id) {
+          alert('This game has already been collected!');
+          return;
+        }
+      }
+      const data= {
+        game: id,
+        custom_user: 1,
+      };
+      const response = await axios.post("http://127.0.0.1:8000/api/collections/", data);
+      console.log(response.status);
+      alert('Add to collection success!');
     },
   },
 };

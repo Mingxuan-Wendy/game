@@ -84,7 +84,7 @@ export default {
   methods: {
     logout() {
       window.sessionStorage.clear();
-      this.$router.push("/login");
+      this.$router.push("/");
     },
 
     onInput() {
