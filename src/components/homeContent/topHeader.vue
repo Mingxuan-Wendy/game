@@ -19,7 +19,7 @@
                 <p>2-4 players 60-120 mins Age:14+ weight:3.9/5</p>
               </div>
               <div class="detail">
-                <el-button @click="getDetail()">Details</el-button>
+                <el-button @click="getDetail(item.id)">Details</el-button>
               </div>
             </div>
           </div>
@@ -27,12 +27,13 @@
       </el-carousel>
     </div>
     <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
-      <GameDetail></GameDetail>
+      <GameDetail :game-data="gameData"></GameDetail>
     </el-dialog>
   </div>
 </template>
 <script>
 import GameDetail from "./gameDetail.vue";
+import axios from "axios";
 export default {
   components: {
     GameDetail,
@@ -41,35 +42,58 @@ export default {
     return {
       imgList: [
         {
-          id: "001",
-          imgUrl: require("../../img/banner1.jpg"),
-          socre: 8.6,
+          id: 1,
+          imgUrl: "https://cf.geekdo-images.com/original/img/lDN358RgcYvQfYYN6Oy2TXpifyM=/0x0/pic2437871.jpg",
+          socre: 8.9,
           moba: "MOBA1",
         },
         {
-          id: "002",
-          imgUrl: require("../../img/banner2.jpg"),
-          socre: 8.7,
+          id: 2,
+          imgUrl: "https://cf.geekdo-images.com/original/img/P_SwsOtPLqgk2ScCgI2YrI9Rg6I=/0x0/pic2452831.png",
+          socre: 8.6,
           moba: "MOBA2",
         },
         {
-          id: "003",
-          imgUrl: require("../../img/banner3.jpg"),
-          socre: 8.8,
+          id: 3,
+          imgUrl: "https://cf.geekdo-images.com/original/img/1d2h-kr4r_9xsss2Br6iMvjR9q0=/0x0/pic2663291.jpg",
+          socre: 8.6,
           moba: "MOBA3",
         },
         {
-          id: "004",
-          imgUrl: require("../../img/banner4.jpg"),
-          socre: 8.9,
+          id: 4,
+          imgUrl: "https://cf.geekdo-images.com/original/img/o8z_levBVArPUKI7ZrIysZEs1A0=/0x0/pic3536616.jpg",
+          socre: 8.3,
           moba: "MOBA4",
         },
       ],
       dialogVisible: false,
+      gameData: {},
     };
   },
   methods: {
-    getDetail() {
+    async getDetail(id) {
+      const response = await axios.get("http://127.0.0.1:8000/api/games/" + id);
+      var gameJsonObj = response.data;
+      // brass: "2-4 players 60-120 mins Age:14+ weight:3.9/5",
+      var min_player = gameJsonObj["min_players"];
+      var max_player = gameJsonObj["max_players"];
+      var min_time = gameJsonObj["min_time"];
+      var max_time = gameJsonObj["max_time"];
+      var age = gameJsonObj["age"];
+      var weight = gameJsonObj["weight"];
+      var brass = min_player + "-" + max_player + " players " + min_time + "-" + max_time + " mins Age:" + age + " weight:" + weight;
+      this.gameData = {
+        name: gameJsonObj["names"],
+        image_url: gameJsonObj["image_url"],
+        score: gameJsonObj["avg_rating"].toFixed(1),
+        category: gameJsonObj["category"],
+        brass: brass,
+        year: gameJsonObj["year"],
+        num_votes: gameJsonObj["num_votes"],
+        bgg_url: gameJsonObj["bgg_url"],
+        owned: gameJsonObj["owned"],
+        designer: gameJsonObj["designer"]
+      }
       this.dialogVisible = true;
     },
   },
