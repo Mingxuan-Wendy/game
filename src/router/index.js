@@ -13,7 +13,6 @@ const routes = [
     },
     {
         path: '/homeContent',
-        name:'HomeContent',
         component: () => import('../views/layout'),
         children: [
             {
