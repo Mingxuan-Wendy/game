@@ -10,7 +10,7 @@ module.exports = defineConfig({
   lintOnSave:false,
   devServer:{
     open:true,
-    host:'localhost'
+    host:'0.0.0.0'
   },
 
   configureWebpack: {
