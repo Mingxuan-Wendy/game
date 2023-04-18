@@ -257,7 +257,7 @@ export default {
         this.$message({
           showClose: true,
           type: "warning",
-          message: "评论不能为空",
+          message: "The comments cannot be null!",
         });
       } else {
         let a = {};
