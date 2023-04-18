@@ -311,19 +311,19 @@ export default {
       var s;
       if (time < 60 * 10) {
         //十分钟内
-        return "刚刚";
+        return "Just now";
       } else if (time < 60 * 60 && time >= 60 * 10) {
         //超过十分钟少于1小时
         s = Math.floor(time / 60);
-        return s + "分钟前";
+        return s + "mins ago";
       } else if (time < 60 * 60 * 24 && time >= 60 * 60) {
         //超过1小时少于24小时
         s = Math.floor(time / 60 / 60);
-        return s + "小时前";
+        return s + "hours ago";
       } else if (time < 60 * 60 * 24 * 30 && time >= 60 * 60 * 24) {
         //超过1天少于30天内
         s = Math.floor(time / 60 / 60 / 24);
-        return s + "天前";
+        return s + "days ago";
       } else {
         //超过30天ddd
         var date1 = new Date(parseInt(date));
