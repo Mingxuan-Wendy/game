@@ -4,7 +4,10 @@
       <el-card class="box-card" style="border-radius: 10%">
         <div class="sign">
           <p class="sign_in">Sign in</p>
-          <p class="create">New user? Create an account</p>
+          <div class="create">
+            <p>New user? </p>
+            <p class="register" @click="clickToRegister">Create an account</p>
+          </div>
         </div>
         <el-form
           :label-position="labelPosition"
@@ -83,11 +86,20 @@
         </div>
       </div>
     </div>
+    <el-dialog :visible.sync="dialogVisible" width="60%" height="500px">
+      <Register></Register>
+    </el-dialog>
   </div>
 </template>
 
 <script>
+import Register from "../../components/login/register.vue"
+import axios from "axios";
 export default {
+  components: {
+    Register,
+  },
+
   data() {
     return {
       labelPosition: "top",
@@ -95,9 +107,15 @@ export default {
         username: "",
         password: "",
       },
+      dialogVisible: false,
+      userData: {},
     };
   },
-  method: {},
+  methods: {
+    clickToRegister() {
+      this.dialogVisible = true;
+    },
+  },
 };
 </script>
 
@@ -151,6 +169,13 @@ export default {
   // color: rgb(96,98,102);
 }
 
+.create {
+  display: flex;
+}
+.register {
+  cursor: pointer;
+  margin-left: 10px;
+}
 .create,
 .continue {
   margin-bottom: 20px;
