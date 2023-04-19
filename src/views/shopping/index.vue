@@ -5,9 +5,9 @@
         <h4>Store</h4>
         <div class="storeBox">
           <div class="content">
-            <p>The Dice Tower</p>
+            <p>Forbidden Planet</p>
             <h4>Address:</h4>
-            <p>118 Willow St, Boston, MA 02108, USA</p>
+            <p>179 Shaftesbury Ave, London WC2H 8JR</p>
             <div style="display: flex; align-items: flex-end">
               <div class="time">
                 <h4>Time:</h4>
@@ -19,9 +19,9 @@
           </div>
 
           <div class="content">
-            <p>The Dice Tower</p>
+            <p>CEX</p>
             <h4>Address:</h4>
-            <p>118 Willow St, Boston, MA 02108, USA</p>
+            <p>32 Rathbone Place, London W1T 1JJ</p>
             <div style="display: flex; align-items: flex-end">
               <div class="time">
                 <h4>Time:</h4>
@@ -33,9 +33,9 @@
           </div>
 
           <div class="content">
-            <p>The Dice Tower</p>
+            <p>Orc's Nest</p>
             <h4>Address:</h4>
-            <p>118 Willow St, Boston, MA 02108, USA</p>
+            <p>6 Earlham St, London WC2H 9RY</p>
             <div style="display: flex; align-items: flex-end">
               <div class="time">
                 <h4>Time:</h4>
@@ -70,9 +70,9 @@
 export default {
   data() {
     return {
-      linkUrl1: 'https://www.dicetower.com/',
-      linkUrl2: 'https://www.dicetower.com/',
-      linkUrl3: 'https://www.dicetower.com/',
+      linkUrl1: 'https://forbiddenplanet.com/',
+      linkUrl2: 'https://uk.webuy.com/',
+      linkUrl3: 'https://www.orcsnest.com/',
       geekMarket_link: 'https://boardgamegeek.com/market?pageid=1',
       geekGameShop_link: 'https://geekgameshop.com/',
       bggStore_link: 'https://boardgamegeekstore.com/',
