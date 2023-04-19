@@ -85,6 +85,10 @@ export default {
       type: Object,
       required: true,
     },
+    user_id: {
+      type: [String, Number],
+      default: undefined,
+    }
   },
   components: {
     GameDetailOverview,

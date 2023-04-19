@@ -13,6 +13,12 @@ import Rank from "../../components/homeContent/rank.vue";
 import Recommended from "../../components/homeContent/recommended.vue";
 export default {
   name: "HomeContent",
+  props: {
+    user_id: {
+      type: [String, Number],
+      default: undefined,
+    }
+  },
   components: {
     TopHeader,
     Invite,

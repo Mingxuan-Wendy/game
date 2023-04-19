@@ -6,7 +6,7 @@
           <p class="sign_in">Sign in</p>
           <div class="create">
             <p>New user? </p>
-            <p class="register" @click="clickToRegister">Create an account</p>
+            <p class="register" style="text-decoration: underline;" @click="clickToRegister">Create an account</p>
           </div>
         </div>
         <el-form
@@ -17,7 +17,7 @@
         >
           <!-- 做校验需要ref prop等 -->
           <el-form-item
-            label="Username or email"
+            label="Username"
             prop="username"
             style="text-align: left; margin-left: 50px"
           >
@@ -35,13 +35,13 @@
             ></el-input>
           </el-form-item>
           <el-form-item style="margin-left: 50px">
-            <el-button type="success" style="width: 300px">Continue</el-button>
+            <el-button type="success" style="width: 300px" @click="clickContinue">Continue</el-button>
           </el-form-item>
           <div class="continue" style="text-align: center; margin-left: 0px">
             Or continue with
           </div>
           <el-form-item style="margin-left: 50px">
-            <router-link :to="{ path: 'homeContent' }">
+            <router-link :to="{ name: 'HomeContent' }">
               <el-button type="primary" style="width: 300px">Default User</el-button>
             </router-link>
           </el-form-item>
@@ -51,8 +51,8 @@
 
     <div class="l_container">
       <div class="logo">
-        <i>游戏图标</i>
-        LOGO
+        <i>BGMT</i>
+        BGMT
       </div>
       <div class="r_footer">
         <p class="cue">You may also like:</p>
@@ -114,6 +114,24 @@ export default {
   methods: {
     clickToRegister() {
       this.dialogVisible = true;
+    },
+    async clickContinue() {
+      const response = await axios.get("http://127.0.0.1:8000/api/custom_user/users/");
+      const users = response.data;
+      let userId;
+      for(var i=0; i<users.length; i++){
+        if(this.form.username === users[i]["email"] && this.form.password === users[i]["password"]) {
+          userId = users[i]["id"];
+          break;
+        }
+      }
+      await this.$router.push({
+        name: 'HomeContent',
+        params: {
+          user_id: userId,
+        }
+      });
+
     },
   },
 };

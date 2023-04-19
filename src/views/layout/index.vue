@@ -14,7 +14,7 @@
           text-color="#000"
           default-active="/homeContent"
         >
-          <el-menu-item index="/homeContent">
+          <el-menu-item :index="`/homeContent/${user_id}`">
             <template slot="title">
               <i class="el-icon-s-home"></i>
               <span>Home</span>
@@ -74,17 +74,31 @@
 </template>
 
 <script>
+import HomeContent from "@/views/homeContent/index.vue";
+
 export default {
+  computed: {
+    HomeContent() {
+      return HomeContent
+    }
+  },
+  props: {
+    user_id: {
+      type: [String, Number],
+      default: undefined,
+    }
+  },
   data() {
     return {
       isActive: false,
       input_value: "",
+
     };
   },
   methods: {
     logout() {
       window.sessionStorage.clear();
-      this.$router.push("/");
+      this.$router.push({name: "Login"});
     },
 
     onInput() {
@@ -101,6 +115,10 @@ export default {
         name: "gameSearchResults",
         params: { input_value: this.input_value },
       });
+    },
+    convertToHome() {
+      this.$router.push({name: "HomeContent"});
+
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="collection">
     <div class="collectionHeader">
-      <h4 class="header">Hi {{ userName }}, Welcome back</h4>
+<!--      <h4 class="header">Hi {{ userName }}, Welcome back</h4>-->
       <h1 class="header">Your Games Collection</h1>
       <div class="filters">
         <el-button

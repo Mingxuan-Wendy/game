@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -33,8 +35,23 @@ export default {
     }
   },
   methods: {
-    submitRegister() {
-
+    async submitRegister() {
+      if(this.inputPassword1 !== this.inputPassword2) {
+        alert("The password you entered for initialize and confirm do not match!");
+      }
+      const data = {
+        nickname: this.inputUserName,
+        username: this.inputUserName,
+        email: this.email,
+        password: this.inputPassword1,
+      }
+      const registerResponse = await axios.post("http://127.0.0.1:8000/api/custom_user/users/", data);
+      const status = registerResponse.status;
+      if(status === 201) {
+        window.location.reload();
+      }else {
+        alert("Register failed, you can also try to login as Default User!");
+      }
     },
   },
 }

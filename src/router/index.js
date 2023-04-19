@@ -12,11 +12,13 @@ const routes = [
         component:Login
     },
     {
-        path: '/homeContent',
+        path: '/homeContent/:user_id',
         component: () => import('../views/layout'),
+        props: (route) => ({ user_id: route.params.user_id }),
         children: [
             {
-                path: '/',
+                path: '',
+                name: 'HomeContent',
                 component: () => import('../views/homeContent'),
             },
             {
